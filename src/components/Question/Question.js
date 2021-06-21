@@ -6,7 +6,9 @@ class Question extends Component {
   state = {
     points: 0,
     userAnswers: [""],
-    currentQuestion: {},
+    currentQuestion: {
+      category: "",
+    },
     currentAnswer: "",
     hint: false,
     currentQuestionNumber: 0,
@@ -73,13 +75,16 @@ class Question extends Component {
             <h1>Category: "{currentQuestion.category}" </h1>
             <hr />
 
-            <h1>Question: {currentQuestion.question}</h1>
+            <h2 dangerouslySetInnerHTML={{ __html: currentQuestion.question }}>
+              {/* Question: {currentQuestion.question} */}
+            </h2>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="formBasicInput">
                 <Form.Label>Answer</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter answer"
+                  value={this.state.currentAnswer}
                   onChange={this.handleChange}
                 />
                 <Form.Text className="text-muted">
@@ -94,7 +99,6 @@ class Question extends Component {
             </Form>
           </Jumbotron>
         )}
-        ;
       </>
     );
   }
