@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import Points from "../../components/Points/Points";
+// import Points from "../../components/Points/Points";
 import Question from "../../components/Question/Question";
 
 class Game extends Component {
   render() {
+    const { triviaQuestions } = this.props;
+    // console.log(triviaQuestions);
     return (
       <div>
-        <Points />
-        <Question />
+        {/* <Points /> */}
+        <Question triviaQuestions={triviaQuestions} />
       </div>
     );
   }
