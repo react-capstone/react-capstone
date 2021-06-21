@@ -1,0 +1,21 @@
+.landingPage {
+    color: blue;
+    text-align: center;
+    /* background-image: url("/Images/background.jpg"); */
+}
+.title {
+    font-size: 60pt;
+    padding-top: 40px;
+    
+}
+.instructionsTitle {
+    font-size: 25pt;
+    padding-top: 40px;
+
+}
+.instructionsPara {
+    padding-top: 25px;
+}
+.PlayerName {
+    padding-top: 25px;
+}
