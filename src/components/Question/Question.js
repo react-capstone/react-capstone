@@ -7,7 +7,7 @@ class Question extends Component {
     userAnswers: [""],
     currentQuestion: {},
     currentAnswer: "",
-    submit: false,
+    hint: false,
     currentQuestionNumber: 0,
   };
 
@@ -28,7 +28,10 @@ class Question extends Component {
     let pointsAdd = 0;
 
     //is answer correct logic
-    if (currentAnswer === currentQuestion.correct_answer) {
+    if (
+      currentAnswer.toLowerCase() ===
+      currentQuestion.correct_answer.toLowerCase()
+    ) {
       pointsAdd = 1;
     }
     this.setState((currentState) => {
@@ -53,10 +56,10 @@ class Question extends Component {
       <div>
         <h3>Points: {points}</h3>
         <hr />
-        <h1>Category: {currentQuestion.category} </h1>
+        <h1>Category: "{currentQuestion.category}" </h1>
         <hr />
 
-        <h1>{currentQuestion.question}</h1>
+        <h1>Question: {currentQuestion.question}</h1>
         <hr />
 
         <Form onSubmit={this.handleSubmit}>
