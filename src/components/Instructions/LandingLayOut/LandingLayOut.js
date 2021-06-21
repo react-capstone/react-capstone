@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Instructions from "../Instructions";
 import { Button } from "react-bootstrap";
 
 class LandingLayOut extends Component {
@@ -6,6 +7,7 @@ class LandingLayOut extends Component {
     return (
       <div>
         <h1>LandingLayOut</h1>
+        <Instructions />
         <Button>START</Button>
       </div>
     );
