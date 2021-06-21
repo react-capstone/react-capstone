@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Jumbotron } from "react-bootstrap";
+import "./Question.css";
 
 class Question extends Component {
   state = {
@@ -60,34 +61,33 @@ class Question extends Component {
     const { currentQuestionNumber, userAnswers, points } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(this.props.triviaQuestions);
-    console.log(userAnswers);
-    console.log(points);
+
     return (
-      <div>
-        <h3>Points: {points}</h3>
-        <hr />
-        <h1>Category: "{currentQuestion.category}" </h1>
-        <hr />
+      <>
+        <Jumbotron className="jumbo text-center">
+          <h3>Points: {points}</h3>
+          <hr />
+          <h1>Category: "{currentQuestion.category}" </h1>
+          <hr />
 
-        <h1>Question: {currentQuestion.question}</h1>
-        <hr />
+          <h1>Question: {currentQuestion.question}</h1>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId="formBasicInput">
+              <Form.Label>Answer</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter answer"
+                onChange={this.handleChange}
+              />
+              <Form.Text className="text-muted">You got this!</Form.Text>
+            </Form.Group>
 
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="formBasicInput">
-            <Form.Label>Answer</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter answer"
-              onChange={this.handleChange}
-            />
-            <Form.Text className="text-muted">You got this!</Form.Text>
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Jumbotron>
+      </>
     );
   }
 }

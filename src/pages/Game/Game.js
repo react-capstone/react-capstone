@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Points from "../../components/Points/Points";
+// import Points from "../../components/Points/Points";
 import Question from "../../components/Question/Question";
 
 class Game extends Component {
@@ -8,7 +8,7 @@ class Game extends Component {
     // console.log(triviaQuestions);
     return (
       <div>
-        <Points />
+        {/* <Points /> */}
         <Question triviaQuestions={triviaQuestions} />
       </div>
     );
