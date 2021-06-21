@@ -37,21 +37,28 @@ class Question extends Component {
         userAnswer: answers,
         currentQuestionNumber: currentState.currentQuestionNumber + 1,
         points: currentState.points + pointsAdd,
+        currentAnswer: "",
       };
     });
   };
 
   render() {
     const { triviaQuestions } = this.props;
-    const { currentQuestionNumber, currentAnswer, userAnswers, points } =
-      this.state;
-
+    const { currentQuestionNumber, userAnswers, points } = this.state;
+    const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(this.props.triviaQuestions);
     console.log(userAnswers);
     console.log(points);
     return (
       <div>
-        <h1>{triviaQuestions[currentQuestionNumber].question}</h1>
+        <h3>Points: {points}</h3>
+        <hr />
+        <h1>Category: {currentQuestion.category} </h1>
+        <hr />
+
+        <h1>{currentQuestion.question}</h1>
+        <hr />
+
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicInput">
             <Form.Label>Answer</Form.Label>
