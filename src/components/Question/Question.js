@@ -11,6 +11,16 @@ class Question extends Component {
     currentQuestionNumber: 0,
   };
 
+  calculatePoints = (question) => {
+    if (question.difficulty === "easy") {
+      return 100;
+    } else if (question.difficulty === "medium") {
+      return 200;
+    } else {
+      return 300;
+    }
+  };
+
   handleChange = (event) => {
     this.setState({
       currentAnswer: event.target.value,
@@ -32,7 +42,7 @@ class Question extends Component {
       currentAnswer.toLowerCase() ===
       currentQuestion.correct_answer.toLowerCase()
     ) {
-      pointsAdd = 1;
+      pointsAdd = this.calculatePoints(currentQuestion);
     }
     this.setState((currentState) => {
       console.log("currentState", currentState);
