@@ -36,6 +36,8 @@ class Question extends Component {
     const answers = userAnswers.push(currentAnswer);
     const currentQuestion = this.props.triviaQuestions[currentQuestionNumber];
 
+    //if there are any questions left/ if player won logic
+
     let pointsAdd = 0;
 
     //is answer correct logic
