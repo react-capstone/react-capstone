@@ -69,7 +69,7 @@ class Question extends Component {
         <Jumbotron className="jumbo text-center">
           <h3>Points: {points}</h3>
           <hr />
-          <h1>Category: "{currentQuestion.category}" </h1>
+          {/* <h1>Category: "{currentQuestion.category}" </h1> */}
           <hr />
 
           <h1>Question: {currentQuestion.question}</h1>
