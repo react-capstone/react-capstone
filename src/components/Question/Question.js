@@ -66,31 +66,35 @@ class Question extends Component {
 
     return (
       <>
-        <Jumbotron className="jumbo text-center">
-          <h3>Points: {points}</h3>
-          <hr />
-          <h1>Category: "{currentQuestion.category}" </h1>
-          <hr />
+        {currentQuestion && (
+          <Jumbotron className="jumbo text-center">
+            <h3>Points: {points}</h3>
+            <hr />
+            <h1>Category: "{currentQuestion.category}" </h1>
+            <hr />
 
-          <h1>Question: {currentQuestion.question}</h1>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId="formBasicInput">
-              <Form.Label>Answer</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter answer"
-                onChange={this.handleChange}
-              />
-              <Form.Text className="text-muted">
-                This question is worth: {this.calculatePoints(currentQuestion)}
-              </Form.Text>
-            </Form.Group>
+            <h1>Question: {currentQuestion.question}</h1>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="formBasicInput">
+                <Form.Label>Answer</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter answer"
+                  onChange={this.handleChange}
+                />
+                <Form.Text className="text-muted">
+                  This question is worth:{" "}
+                  {this.calculatePoints(currentQuestion)}
+                </Form.Text>
+              </Form.Group>
 
-            <Button className="button" variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Jumbotron>
+              <Button className="button" variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Jumbotron>
+        )}
+        ;
       </>
     );
   }
