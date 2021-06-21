@@ -79,7 +79,9 @@ class Question extends Component {
                 placeholder="Enter answer"
                 onChange={this.handleChange}
               />
-              <Form.Text className="text-muted">You got this!</Form.Text>
+              <Form.Text className="text-muted">
+                This question is worth: {this.calculatePoints(currentQuestion)}
+              </Form.Text>
             </Form.Group>
 
             <Button variant="primary" type="submit">
