@@ -1,39 +1,38 @@
 .landingPage {
-    color: blue;
     text-align: center;
-    background-image: url("https://t4.ftcdn.net/jpg/03/45/88/07/360_F_345880772_zIT2mkdCzTthplO7xqaGGrMspN0jw0ll.jpg");
+    background-image: url("../../../Images/trivia_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-image: linear-gradient(black,grey,darkgrey,red);
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background: #2C3539; */
-  color: white;
-  padding: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
 }
 
-.Border {
-    /* max-width: 250px; */
+.border {
     padding: 1rem;
     position: relative;
-    background: linear-gradient(to right, red, purple);
-    padding: 10px;
+    background: linear-gradient(to right, rgb(0, 192, 250), purple);
+    padding: 8px;
 }
+
 .title {
     font-size: 60pt;
     padding-top: 40px;
-    
 }
+
 .instructionsTitle {
     font-size: 25pt;
     padding-top: 40px;
-
 }
+
 .instructionsPara {
     padding-top: 25px;
 }
+
 .playerName {
     padding-top: 25px;
     padding-bottom: 20px;
 }
-
+.nameField {
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.9);
+}
