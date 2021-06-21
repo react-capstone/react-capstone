@@ -4,12 +4,10 @@ import Question from "../../components/Question/Question";
 
 class Game extends Component {
   render() {
-    const { triviaQuestions } = this.props;
-    // console.log(triviaQuestions);
     return (
       <div>
         {/* <Points /> */}
-        <Question triviaQuestions={triviaQuestions} />
+        <Question triviaQuestions={this.props.triviaQuestions} />
       </div>
     );
   }
