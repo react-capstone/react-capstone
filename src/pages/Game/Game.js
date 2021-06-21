@@ -7,7 +7,7 @@ class Game extends Component {
     return (
       <div>
         {/* <Points /> */}
-        <Question />
+        <Question triviaQuestions={this.props.triviaQuestions} />
       </div>
     );
   }
