@@ -27,9 +27,8 @@ class App extends Component {
       <>
         <Landing />
         <hr />
-        {/* <Game triviaQuestions={questions} />
+        <Game triviaQuestions={questions} />
         <hr />
-        <Summary /> */}
       </>
     );
   }

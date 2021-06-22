@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Button, Form, Jumbotron } from "react-bootstrap";
 import "./Question.css";
+import Summary from "../Summary/Summary";
+
 class Question extends Component {
   state = {
     points: 0,
-    userAnswers: [""],
-    currentQuestion: {
-      category: "",
-    },
+    userAnswers: [],
     currentAnswer: "",
     hint: false,
     currentQuestionNumber: 0,
@@ -26,12 +25,6 @@ class Question extends Component {
       currentAnswer: event.target.value,
     });
   };
-
-  // isGameOver = (score) => {
-  //   if (score  1000) {
-  //     return ("You have won the game!");
-  //   }
-  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -70,7 +63,14 @@ class Question extends Component {
     return (
       <>
         {points < 1000 && currentQuestionNumber === triviaQuestions.length ? (
-          <h1>The game is over. Try Again!</h1>
+          <h1>
+            <Summary
+              status={false}
+              triviaQuestions={triviaQuestions}
+              userAnswers={userAnswers}
+              points={points}
+            />
+          </h1>
         ) : (
           <></>
         )}
@@ -110,7 +110,11 @@ class Question extends Component {
                 </Form>
               </>
             ) : (
-              <h1>You have won the game!</h1>
+              <Summary
+                status={true}
+                userAnswers={userAnswers}
+                points={points}
+              />
             )}
           </Jumbotron>
         )}
