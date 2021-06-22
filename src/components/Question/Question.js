@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, Jumbotron } from "react-bootstrap";
 import "./Question.css";
+// import Game from "../../pages/Game/Game";
+
 class Question extends Component {
   state = {
     points: 0,

@@ -1,10 +1,6 @@
 .landingPage {
     text-align: center;
-<<<<<<< HEAD
-    /* background-image: url("/react-capstone/src/Images/trivia_background.jpeg"); */
-=======
     background-image: url("../../../Images/trivia_background.jpg");
->>>>>>> 32337fc9717ed85a747c23bf5d19891372c4fa43
     background-repeat: no-repeat;
     background-size: cover;
     color: rgba(255, 255, 255, 0.9);
