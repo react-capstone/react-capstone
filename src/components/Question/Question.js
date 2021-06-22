@@ -76,7 +76,7 @@ class Question extends Component {
         )}
         {currentQuestion && (
           <Jumbotron className="jumbo text-center">
-            <h3>Points: {points}</h3>
+            {/* <h3>Points: {points}</h3> */}
             <hr />
 
             {points < 100 ? (
