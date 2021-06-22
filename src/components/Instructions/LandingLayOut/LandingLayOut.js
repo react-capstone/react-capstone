@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Instructions from "../Instructions";
 import { Jumbotron, Button } from "react-bootstrap";
 import "./LandingLayOut.css";
+import { Link } from "react-router-dom";
 
 class LandingLayOut extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class LandingLayOut extends Component {
               </form>
             </section>
             {/* <Instructions /> */}
-            <Button>START</Button>
+            <Link to="/game">
+              <Button>START</Button>
+            </Link>
           </body>
         </div>
       </>
