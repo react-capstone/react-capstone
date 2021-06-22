@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, Jumbotron } from "react-bootstrap";
 import "./Question.css";
 import Summary from "../Summary/Summary";
+import Hint from "../Hint/Hint";
 
 class Question extends Component {
   state = {
@@ -26,18 +27,21 @@ class Question extends Component {
     });
   };
 
+  handleHint = () => {
+    this.setState({
+      hint: true,
+    });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    const { userAnswers, currentAnswer, currentQuestionNumber, points } =
+    const { userAnswers, currentAnswer, currentQuestionNumber, points, hint } =
       this.state;
     //push currentAnswer into userAnswers and set that as userAnswers state
     const answers = userAnswers.push(currentAnswer);
     const currentQuestion = this.props.triviaQuestions[currentQuestionNumber];
 
-    //if there are any questions left/ if player won logic
-
     let pointsAdd = 0;
-    //is answer correct logic
 
     if (
       currentAnswer.toLowerCase() ===
@@ -45,6 +49,8 @@ class Question extends Component {
     ) {
       pointsAdd = this.calculatePoints(currentQuestion);
     }
+
+    hint ? (pointsAdd -= 50) : (pointsAdd += 0);
     this.setState((currentState) => {
       console.log("currentState", currentState);
       return {
@@ -52,14 +58,16 @@ class Question extends Component {
         currentQuestionNumber: currentState.currentQuestionNumber + 1,
         points: currentState.points + pointsAdd,
         currentAnswer: "",
+        hint: false,
       };
     });
   };
   render() {
     const { triviaQuestions } = this.props;
-    const { currentQuestionNumber, userAnswers, points } = this.state;
+    const { currentQuestionNumber, userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
-    console.log(this.props.triviaQuestions);
+    console.log(hint);
+    // console.log(this.props.triviaQuestions);
     return (
       <>
         {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
@@ -92,7 +100,7 @@ class Question extends Component {
                 </h2>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
-                    <Form.Label>Answer</Form.Label>
+                    <Form.Label></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Enter answer"
@@ -104,10 +112,27 @@ class Question extends Component {
                       {this.calculatePoints(currentQuestion)}
                     </Form.Text>
                   </Form.Group>
-                  <Button className="button" variant="primary" type="submit">
-                    Submit
-                  </Button>
+                  <div>
+                    <Button className="button" variant="primary" type="submit">
+                      Submit
+                    </Button>
+                  </div>
                 </Form>
+                <br />
+                <div>
+                  {!hint ? (
+                    <Button
+                      onClick={this.handleHint}
+                      className="button"
+                      variant="warning"
+                      type="submit"
+                    >
+                      Need a Hint? (50 points)
+                    </Button>
+                  ) : (
+                    <Hint currentQuestion={currentQuestion} />
+                  )}
+                </div>
               </>
             ) : (
               <Summary

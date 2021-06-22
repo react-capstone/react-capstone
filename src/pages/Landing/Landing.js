@@ -6,7 +6,10 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <LandingLayOut handleNameChange={this.props.handleNameChange} />
+        <LandingLayOut
+          handleNameChange={this.props.handleNameChange}
+          playerName={this.props.playerName}
+        />
         {/* <Instructions /> */}
       </div>
     );

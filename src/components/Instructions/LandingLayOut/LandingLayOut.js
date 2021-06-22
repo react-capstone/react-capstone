@@ -11,15 +11,16 @@ class LandingLayOut extends Component {
   //   };
   // }
 
-  // handleChange = (event) => {
-  //   this.props.handleNameChange();
-  // };
+  handleChange = (event) => {
+    this.props.handleNameChange(event.target.value);
+  };
 
   render() {
     // const { playerName } = this.state;
     // console.log(this.state.playerName);
     return (
       <>
+        <h1>{this.props.playerName}</h1>
         <div className="border">
           <body className="landingPage">
             <section>
@@ -41,9 +42,10 @@ class LandingLayOut extends Component {
                 </label>
                 <input
                   className="nameField"
-                  // onChange={this.handleChange}
+                  onChange={this.handleChange}
                   type="text"
-                  name="Player Name:"
+                  name="name"
+                  value={this.props.playerName}
                 />
               </form>
             </section>

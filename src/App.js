@@ -12,12 +12,11 @@ class App extends Component {
     playerName: "",
   };
 
-  // handleNameChange = (event) => {
-  //   console.log("event.target", event.target);
-  //   this.setState({
-  //     playerName: event.target,
-  //   });
-  // };
+  handleNameChange = (playerName) => {
+    this.setState({
+      playerName: playerName,
+    });
+  };
 
   componentDidMount() {
     fetch("https://opentdb.com/api.php?amount=15")
@@ -39,7 +38,10 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path="/">
-              <Landing />
+              <Landing
+                handleNameChange={this.handleNameChange}
+                playerName={this.state.playerName}
+              />
             </Route>
             <Route exact path="/game">
               <Game triviaQuestions={questions} />
