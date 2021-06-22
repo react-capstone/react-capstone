@@ -9,6 +9,13 @@ import Question from "./components/Question/Question";
 class App extends Component {
   state = {
     questions: {},
+    playerName: "",
+  };
+
+  handleNameChange = (playerName) => {
+    this.setState({
+      playerName: playerName,
+    });
   };
 
   componentDidMount() {
@@ -24,13 +31,17 @@ class App extends Component {
       .catch((error) => console.log(error));
   }
   render() {
-    const { questions } = this.state;
+    const { questions, playerName } = this.state;
+    console.log(playerName);
     return (
       <div>
         <main>
           <Switch>
             <Route exact path="/">
-              <Landing />
+              <Landing
+                handleNameChange={this.handleNameChange}
+                playerName={this.state.playerName}
+              />
             </Route>
             <Route exact path="/game">
               <Game triviaQuestions={questions} />
