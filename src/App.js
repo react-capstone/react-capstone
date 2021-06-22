@@ -5,6 +5,7 @@ import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
 import Summary from "./components/Summary/Summary";
 import Question from "./components/Question/Question";
+import NoMatch from "./components/NoMatch/NoMatch";
 
 class App extends Component {
   state = {
@@ -41,6 +42,7 @@ class App extends Component {
             <Route exact path="/summary">
               <Summary />
             </Route>
+            <Route path="*" component={NoMatch} />
           </Switch>
         </main>
       </div>
