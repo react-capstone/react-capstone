@@ -1,41 +1,38 @@
 import React, { Component } from "react";
-import { Button, Tab, Row, Nav, Col } from "react-bootstrap";
-import UserAnswers from "../UserAnswers";
-import CorrectAnswers from "../CorrectAnswers";
+import { Button } from "react-bootstrap";
 
 class Summary extends Component {
   render() {
     const { status, triviaQuestions, userAnswers, points } = this.props;
-    const finalUserAnswers = userAnswers.map((answer) => <li>{answer}</li>);
+
+    let finalResults = userAnswers.map((userAnswer, i) => {
+      return {
+        user: userAnswer,
+        correct: triviaQuestions[i].correct_answer,
+      };
+    });
+
+    const summary = finalResults.map((result, index) => {
+      return (
+        <div className="result">
+          <li>
+            Question {index + 1} <br />
+            Your Answer: {result.user}
+            <br />
+            Correct Answer: {result.correct}
+          </li>
+        </div>
+      );
+    });
+    console.log("finalResults", finalResults);
     return (
       <>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-          <Row>
-            <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
-                <Nav.Item>
-                  <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={9}>
-              <Tab.Content>
-                <Tab.Pane eventKey="first">
-                  <UserAnswers />
-                </Tab.Pane>
-                <Tab.Pane eventKey="second">
-                  <CorrectAnswers />
-                </Tab.Pane>
-              </Tab.Content>
-            </Col>
-          </Row>
-        </Tab.Container>
         <h1>Thanks for playing! Here is the summary of what you learned :)</h1>
         <h2>{points}</h2>
-        <ul>Your answers: {finalUserAnswers}</ul>
+        <ul>
+          Here is how it went: <br />
+          {summary}
+        </ul>
         <Button>Start over</Button>
       </>
     );
