@@ -1,7 +1,10 @@
+import { Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
 import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
+import Summary from "./components/Summary/Summary";
+import Question from "./components/Question/Question";
 
 class App extends Component {
   state = {
@@ -23,12 +26,24 @@ class App extends Component {
   render() {
     const { questions } = this.state;
     return (
-      <>
-        <Landing />
-        <hr />
-        <Game triviaQuestions={questions} />
-        <hr />
-      </>
+      <div>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Landing />
+            </Route>
+            <Route exact path="/game">
+              <Game triviaQuestions={questions} />
+            </Route>
+            {/* <Route exact path="/points">
+          <Points />
+        </Route> */}
+            <Route exact path="/summary">
+              <Summary />
+            </Route>
+          </Switch>
+        </main>
+      </div>
     );
   }
 }

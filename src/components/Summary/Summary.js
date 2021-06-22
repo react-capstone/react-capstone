@@ -41,7 +41,7 @@ class Summary extends Component {
       <Jumbotron>
         <body className="summary-container text-center">
           <h1>Thanks for playing!</h1>
-          <h3>Here is the summary of how it went :)</h3>
+          <h3>Here is how you did :)</h3>
 
           {status ? (
             <h2 className={winOrLost}>You have won the game!</h2>
