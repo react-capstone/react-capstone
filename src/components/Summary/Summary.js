@@ -6,13 +6,6 @@ class Summary extends Component {
   render() {
     const { status, triviaQuestions, userAnswers, points } = this.props;
 
-    const filledUserAnswers = userAnswers.fill(
-      "No answer given",
-      userAnswers.length,
-      triviaQuestions.length
-    );
-    console.log("filledUser", filledUserAnswers);
-
     let finalResults = userAnswers.map((userAnswer, i) => {
       return {
         user: userAnswer,
@@ -31,7 +24,11 @@ class Summary extends Component {
             </p>
             <p>
               Your Answer:{" "}
-              {result.user === "" ? "No Answer Given" : result.user}
+              {result.user === "" ? (
+                <span className="noAnswer">No Answer Given</span>
+              ) : (
+                result.user
+              )}
             </p>
             <p>Correct Answer: {result.correct}</p>
           </li>

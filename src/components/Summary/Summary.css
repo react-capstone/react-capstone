@@ -15,3 +15,7 @@
 .lost {
   color: aqua;
 }
+
+.noAnswer {
+  font-style: italic;
+}

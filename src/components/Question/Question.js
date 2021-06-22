@@ -62,7 +62,7 @@ class Question extends Component {
     console.log(this.props.triviaQuestions);
     return (
       <>
-        {points < 1000 && currentQuestionNumber === triviaQuestions.length ? (
+        {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
           <h1>
             <Summary
               status={false}
@@ -79,7 +79,7 @@ class Question extends Component {
             <h3>Points: {points}</h3>
             <hr />
 
-            {points < 1000 ? (
+            {points < 100 ? (
               <>
                 <h1>Category: "{currentQuestion.category}" </h1>
                 <hr />
@@ -114,6 +114,7 @@ class Question extends Component {
                 status={true}
                 userAnswers={userAnswers}
                 points={points}
+                triviaQuestions={triviaQuestions}
               />
             )}
           </Jumbotron>
