@@ -9,7 +9,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("https://opentdb.com/api.php?amount=5")
+    fetch("https://opentdb.com/api.php?amount=15")
       .then((res) => res.json())
       .then((data) => {
         console.log("data", data.results);
