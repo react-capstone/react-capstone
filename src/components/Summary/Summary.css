@@ -1,0 +1,21 @@
+.summary-container {
+  padding: 5%;
+  background-color: black;
+  color: white;
+}
+.result {
+  padding: 5%;
+  list-style-type: none;
+}
+
+.win {
+  color: coral;
+}
+
+.lost {
+  color: aqua;
+}
+
+.noAnswer {
+  font-style: italic;
+}

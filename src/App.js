@@ -49,14 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-{
-  /* <Landing />
-        <hr />
-        <Game triviaQuestions={questions} />
-        <hr />
-        <Summary /> */
-}
-// </>
-// );
-// }
