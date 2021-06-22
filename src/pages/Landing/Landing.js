@@ -4,11 +4,12 @@ import LandingLayOut from "../../components/Instructions/LandingLayOut/LandingLa
 
 class Landing extends Component {
   render() {
+    const { handleNameChange, playerName } = this.props;
     return (
       <div>
         <LandingLayOut
-          handleNameChange={this.props.handleNameChange}
-          playerName={this.props.playerName}
+          handleNameChange={handleNameChange}
+          playerName={playerName}
         />
         {/* <Instructions /> */}
       </div>
