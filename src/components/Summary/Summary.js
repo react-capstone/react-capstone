@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { Button, Jumbotron } from "react-bootstrap";
 import "./Summary.css";
+import { Link } from "react-router-dom";
 
 class Summary extends Component {
+  handleClick = (event) => {
+    window.location.reload(false);
+  };
+
   render() {
     const { status, triviaQuestions, userAnswers, points } = this.props;
 
@@ -50,7 +55,12 @@ class Summary extends Component {
           )}
           <div className="points">Total points: {points}</div>
           <ul>{summary}</ul>
-          <Button>Start over</Button>
+          <Link to="/game">
+            <Button onClick={this.handleClick}>Start over</Button>
+          </Link>
+          <Link to="/">
+            <Button variant="danger">New Player</Button>
+          </Link>
         </body>
       </Jumbotron>
     );
