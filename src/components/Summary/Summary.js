@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
+import "./Summary.css";
 
 class Summary extends Component {
   render() {
@@ -14,7 +15,7 @@ class Summary extends Component {
 
     const summary = finalResults.map((result, index) => {
       return (
-        <div className="result">
+        <div className="result text-left">
           <li>
             Question {index + 1} <br />
             Your Answer: {result.user}
@@ -25,16 +26,23 @@ class Summary extends Component {
       );
     });
     console.log("finalResults", finalResults);
+    const winOrLost = status ? "win" : "lost";
     return (
-      <>
-        <h1>Thanks for playing! Here is the summary of what you learned :)</h1>
-        <h2>{points}</h2>
-        <ul>
-          Here is how it went: <br />
-          {summary}
-        </ul>
-        <Button>Start over</Button>
-      </>
+      <Jumbotron>
+        <body className="summary-container text-center">
+          <h1>Thanks for playing!</h1>
+          <h3>Here is the summary of how it went :)</h3>
+          <br />
+          {status ? (
+            <h2 className={winOrLost}>You have won the game!</h2>
+          ) : (
+            <h2 className={winOrLost}>Better luck next time!</h2>
+          )}
+          <div className="points">Total points: {points}</div>
+          <ul>{summary}</ul>
+          <Button>Start over</Button>
+        </body>
+      </Jumbotron>
     );
   }
 }
