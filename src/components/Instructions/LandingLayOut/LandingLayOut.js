@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import Instructions from "../Instructions";
-import { Jumbotron, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./LandingLayOut.css";
 import { Link } from "react-router-dom";
 
 class LandingLayOut extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playerName: "",
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     playerName: "",
+  //   };
+  // }
+
+  // handleChange = (event) => {
+  //   this.props.handleNameChange();
+  // };
 
   render() {
+    // const { playerName } = this.state;
+    // console.log(this.state.playerName);
     return (
       <>
         <div className="border">
@@ -32,12 +37,16 @@ class LandingLayOut extends Component {
               </p>
               <form>
                 <label className="playerName" for="playerName">
-                  Player Name:
+                  Player Name:{" "}
                 </label>
-                <input className="nameField" type="text" name="Player Name:" />
+                <input
+                  className="nameField"
+                  // onChange={this.handleChange}
+                  type="text"
+                  name="Player Name:"
+                />
               </form>
             </section>
-            {/* <Instructions /> */}
             <Link to="/game">
               <Button>START</Button>
             </Link>

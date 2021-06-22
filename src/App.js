@@ -9,7 +9,15 @@ import Question from "./components/Question/Question";
 class App extends Component {
   state = {
     questions: {},
+    playerName: "",
   };
+
+  // handleNameChange = (event) => {
+  //   console.log("event.target", event.target);
+  //   this.setState({
+  //     playerName: event.target,
+  //   });
+  // };
 
   componentDidMount() {
     fetch("https://opentdb.com/api.php?amount=15")
@@ -24,7 +32,8 @@ class App extends Component {
       .catch((error) => console.log(error));
   }
   render() {
-    const { questions } = this.state;
+    const { questions, playerName } = this.state;
+    console.log(playerName);
     return (
       <div>
         <main>
