@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Instructions from "../Instructions";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class LandingLayOut extends Component {
   render() {
