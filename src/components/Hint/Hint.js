@@ -6,9 +6,10 @@ class Hint extends Component {
     gifImage: "",
   };
   componentDidMount() {
+    const API_KEY = process.env.REACT_APP_GIPHY_API_KEY;
     const answer = this.props.currentQuestion.correct_answer;
     fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=iCE14LxKwLeqaGc2y1lO1Q8UCwnmR5Lh&q=${answer}&limit=1&offset=0&rating=g&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${answer}&limit=1&offset=0&rating=g&lang=en`
     )
       .then((res) => res.json())
       .then((info) => {
@@ -23,13 +24,12 @@ class Hint extends Component {
   }
 
   render() {
-    const { currentQuestion } = this.props;
     const { gifImage } = this.state;
     console.log("hint gif", gifImage);
     return (
       <>
         {/* <i>Hi</i> */}
-        <img src={gifImage} alt="gifImage" width="250" />
+        <Image src={gifImage} alt="gifImage" width="250" />
       </>
     );
   }
