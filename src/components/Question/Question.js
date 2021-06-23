@@ -69,6 +69,23 @@ class Question extends Component {
     const { currentQuestionNumber, userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(hint);
+    let allAnswers;
+    let allAnswersMapped;
+    if (currentQuestion) {
+      allAnswers = [
+        ...currentQuestion.incorrect_answers,
+        currentQuestion.correct_answer,
+      ];
+      allAnswersMapped = allAnswers.map((answer) => (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: answer + ", ",
+          }}
+        ></span>
+      ));
+    }
+    const shuffledAnswers = this.shuffle(allAnswersMapped);
+
     // console.log(this.props.triviaQuestions);
     return (
       <>
@@ -97,6 +114,7 @@ class Question extends Component {
                 <p>
                   Current Points for {playerName}: {points}
                 </p>
+
                 <h1>Category: "{currentQuestion.category}" </h1>
                 <hr />
                 <h2
@@ -119,7 +137,12 @@ class Question extends Component {
                       This question is worth:{" "}
                       {this.calculatePoints(currentQuestion)}
                     </Form.Text>
-                  </Form.Group>
+                  </Form.Group>{" "}
+                  {allAnswersMapped ? (
+                    <p className="choices">Choices: {allAnswersMapped}</p>
+                  ) : (
+                    <></>
+                  )}
                   <div>
                     <Button className="button" variant="primary" type="submit">
                       Submit
