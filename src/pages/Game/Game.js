@@ -9,9 +9,9 @@ class Game extends Component {
     const { triviaQuestions } = this.props;
     return (
       <div>
-        <Link to="/">
+        {/* <Link to="/">
           <House size={50} />
-        </Link>
+        </Link> */}
         {/* <Points /> */}
         <Question triviaQuestions={triviaQuestions} />
       </div>

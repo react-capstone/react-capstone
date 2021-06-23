@@ -3,6 +3,8 @@ import { Button, Form, Jumbotron } from "react-bootstrap";
 import "./Question.css";
 import Summary from "../Summary/Summary";
 import Hint from "../Hint/Hint";
+import { House } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 class Question extends Component {
   state = {
@@ -84,6 +86,9 @@ class Question extends Component {
         )}
         {currentQuestion && (
           <Jumbotron className="jumbo text-center">
+            <Link to="/">
+          <House size={50} />
+        </Link>
             {/* <h3>Points: {points}</h3> */}
             <hr />
 
@@ -143,6 +148,7 @@ class Question extends Component {
                 triviaQuestions={triviaQuestions}
               />
             )}
+            
           </Jumbotron>
         )}
       </>
