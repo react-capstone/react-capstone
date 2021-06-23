@@ -1,38 +1,40 @@
 .landingPage {
-    text-align: center;
-    background-image: url("../../../Images/trivia_background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+  text-align: center;
+  background-image: url("../../../Images/trivia_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
 }
-
+.instructionsContainer {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
 .border.jumbo {
-   
-    position: relative;
-    background: linear-gradient(to right, rgb(0, 192, 250), purple);
-    padding: 8px;
+  position: relative;
+  background: linear-gradient(to right, rgb(0, 192, 250), purple);
+  padding: 8px;
 }
-
 .title {
-    font-size: 60pt;
-    padding-top: 40px;
+  font-size: 60pt;
+  padding-top: 30px;
 }
-
 .instructionsTitle {
-    font-size: 25pt;
-    padding-top: 40px;
+  font-size: 25pt;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  color: rgb(0, 225, 255);
 }
-
 .instructionsPara {
-    padding-top: 25px;
+  color: rgb(242, 147, 255);
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.515);
 }
-
 .playerName {
-    padding-top: 25px;
-    padding-bottom: 20px;
+  padding-top: 25px;
+  padding-bottom: 20px;
 }
 .nameField {
-    font-weight: 500;
-    background-color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.9);
 }
