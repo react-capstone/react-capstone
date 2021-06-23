@@ -66,16 +66,17 @@ class Question extends Component {
   };
   render() {
     const { triviaQuestions, playerName } = this.props;
-    const { currentQuestionNumber, userAnswers, points, hint } = this.state;
+    const { currentQuestionNumber, currentAnswer, userAnswers, points, hint } =
+      this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(hint);
+    let randomNum = Math.floor(Math.random() * 4);
     let allAnswers;
     let allAnswersMapped;
-    if (currentQuestion) {
-      allAnswers = [
-        ...currentQuestion.incorrect_answers,
-        currentQuestion.correct_answer,
-      ];
+    if (currentQuestion && currentAnswer === "") {
+      allAnswers = [...currentQuestion.incorrect_answers];
+
+      allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
       allAnswersMapped = allAnswers.map((answer) => (
         <span
           dangerouslySetInnerHTML={{
