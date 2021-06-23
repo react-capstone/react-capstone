@@ -89,6 +89,7 @@ class Question extends Component {
 
             {points < 100 ? (
               <>
+                <h3>Points: {points}</h3>
                 <h1>Category: "{currentQuestion.category}" </h1>
                 <hr />
                 <h2

@@ -13,9 +13,9 @@ class Hint extends Component {
       .then((res) => res.json())
       .then((info) => {
         console.log("gif data", info);
-        // this.setState({
-        //   gifImage: data.
-        // })
+        this.setState({
+          gifImage: info.data[0].images.original.url,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -24,10 +24,12 @@ class Hint extends Component {
 
   render() {
     const { currentQuestion } = this.props;
-    console.log("hint current", currentQuestion);
+    const { gifImage } = this.state;
+    console.log("hint gif", gifImage);
     return (
       <>
-        <div>Hi</div>
+        {/* <i>Hi</i> */}
+        <img src={gifImage} alt="gifImage" width="250" />
       </>
     );
   }
