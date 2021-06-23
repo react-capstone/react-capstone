@@ -4,6 +4,7 @@ import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
 import Summary from "./components/Summary/Summary";
+import Question from "./components/Question/Question";
 import NoMatch from "./components/NoMatch/NoMatch";
 
 class App extends Component {
@@ -39,17 +40,17 @@ class App extends Component {
           <Route exact path="/">
             <Landing
               handleNameChange={this.handleNameChange}
-              playerName={playerName}
+              playerName={this.state.playerName}
             />
           </Route>
           <Route exact path="/game">
-            <Game triviaQuestions={questions} playerName={playerName} />
+            <Game triviaQuestions={questions} />
           </Route>
           {/* <Route exact path="/points">
           <Points />
         </Route> */}
           <Route exact path="/summary">
-            <Summary playerName={playerName} />
+            <Summary />
           </Route>
           <Route path="*" component={NoMatch} />
         </Switch>
