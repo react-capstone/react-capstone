@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 class Game extends Component {
   render() {
-    const { triviaQuestions } = this.props;
+    const { triviaQuestions, playerName } = this.props;
     return (
       <div>
         {/* <Link to="/">
           <House size={50} />
         </Link> */}
         {/* <Points /> */}
-        <Question triviaQuestions={triviaQuestions} />
+        <Question triviaQuestions={triviaQuestions} playerName={playerName} />
       </div>
     );
   }

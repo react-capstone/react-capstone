@@ -65,10 +65,26 @@ class Question extends Component {
     });
   };
   render() {
-    const { triviaQuestions } = this.props;
+    const { triviaQuestions, playerName } = this.props;
     const { currentQuestionNumber, userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(hint);
+    let allAnswers;
+    let allAnswersMapped;
+    if (currentQuestion) {
+      allAnswers = [
+        ...currentQuestion.incorrect_answers,
+        currentQuestion.correct_answer,
+      ];
+      allAnswersMapped = allAnswers.map((answer) => (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: answer + ", ",
+          }}
+        ></span>
+      ));
+    }
+
     // console.log(this.props.triviaQuestions);
     return (
       <>
@@ -79,6 +95,7 @@ class Question extends Component {
               triviaQuestions={triviaQuestions}
               userAnswers={userAnswers}
               points={points}
+              playerName={playerName}
             />
           </h1>
         ) : (
@@ -89,12 +106,14 @@ class Question extends Component {
             <Link to="/">
               <House size={50} />
             </Link>
-            {/* <h3>Points: {points}</h3> */}
             <hr />
 
             {points < 100 ? (
               <>
-                <h3>Points: {points}</h3>
+                <p>
+                  Current Points for {playerName}: {points}
+                </p>
+
                 <h1>Category: "{currentQuestion.category}" </h1>
                 <hr />
                 <h2
@@ -117,13 +136,14 @@ class Question extends Component {
                       This question is worth:{" "}
                       {this.calculatePoints(currentQuestion)}
                     </Form.Text>
-                  </Form.Group>
+                  </Form.Group>{" "}
+                  {allAnswersMapped ? (
+                    <p className="choices">Choices: {allAnswersMapped}</p>
+                  ) : (
+                    <></>
+                  )}
                   <div>
-                    <Button
-                      className="button questionBtn"
-                      variant="primary"
-                      type="submit"
-                    >
+                    <Button className="button" variant="primary" type="submit">
                       Submit
                     </Button>
                   </div>
@@ -150,6 +170,7 @@ class Question extends Component {
                 userAnswers={userAnswers}
                 points={points}
                 triviaQuestions={triviaQuestions}
+                playerName={playerName}
               />
             )}
           </Jumbotron>

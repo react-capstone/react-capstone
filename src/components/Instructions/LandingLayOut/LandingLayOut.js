@@ -24,15 +24,23 @@ class LandingLayOut extends Component {
         <div className="landingPage">
           <h1 className="title">Triva Time</h1>
           <h3 className="instructionsTitle">Instructions</h3>
-          <p className="instructionsPara">
-            -Vivamus eu nibh elementum, consequat massa vitae, venenatis ipsum.
-            <br></br>
-            -Quisque faucibus erat hendrerit purus aliquet blandit.
-            <br></br>
-            -Nam vitae ipsum sed dui mattis efficitur nec a mi.
-            <br></br>
-            -Phasellus sed mi pretium, placerat odio sit amet, pulvinar dui.
-          </p>
+          <span className="instructionsPara">
+            -1000 points wins the game.
+            <br />
+            -Each round has up to 15 questions.
+            <br />
+            -Easy questions are worth 100 points.
+            <br />
+            -Medium questions are worth 200 points.
+            <br />
+            -Hard questions are worth 300 points.
+            <br />
+            -Hints cost 50 points and display a helpful GIF.
+            <br />
+            -If you have not scored 1000 points after question 15, you lose the
+            game.
+            <br />
+          </span>
           <form>
             <label className="playerName" for="playerName">
               Player Name:{" "}
@@ -42,7 +50,8 @@ class LandingLayOut extends Component {
               onChange={this.handleChange}
               type="text"
               name="name"
-              value={this.props.playerName}
+              value={playerName}
+              required
             />
           </form>
 
