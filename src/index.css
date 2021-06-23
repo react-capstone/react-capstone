@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://media1.tenor.com/images/dbc9327947163406625e71f4af114f3b/tenor.gif?itemid=13113745");
+  background: url("https://media1.tenor.com/images/dbc9327947163406625e71f4af114f3b/tenor.gif?itemid=13113745")
+    no-repeat center center fixed;
   background-size: cover;
 }
 

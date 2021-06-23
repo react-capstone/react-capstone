@@ -16,11 +16,11 @@ class LandingLayOut extends Component {
   };
 
   render() {
-    // const { playerName } = this.state;
+    const { playerName } = this.props;
     // console.log(this.state.playerName);
     return (
       <Jumbotron className="border jumbo">
-        <h1>{this.props.playerName}</h1>
+        {/* <h1>{this.props.playerName}</h1> */}
         <div className="landingPage">
           <h1 className="title">Triva Time</h1>
           <h3 className="instructionsTitle">Instructions</h3>
