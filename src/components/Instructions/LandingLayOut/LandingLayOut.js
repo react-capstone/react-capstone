@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
 import "./LandingLayOut.css";
 import { Link } from "react-router-dom";
 
@@ -19,42 +19,38 @@ class LandingLayOut extends Component {
     // const { playerName } = this.state;
     // console.log(this.state.playerName);
     return (
-      <>
+      <Jumbotron className="border jumbo">
         <h1>{this.props.playerName}</h1>
-        <div className="border">
-          <body className="landingPage">
-            <section>
-              <h1 className="title">Triva Time</h1>
-              <h3 className="instructionsTitle">Instructions</h3>
-              <p className="instructionsPara">
-                -Vivamus eu nibh elementum, consequat massa vitae, venenatis
-                ipsum.
-                <br></br>
-                -Quisque faucibus erat hendrerit purus aliquet blandit.
-                <br></br>
-                -Nam vitae ipsum sed dui mattis efficitur nec a mi.
-                <br></br>
-                -Phasellus sed mi pretium, placerat odio sit amet, pulvinar dui.
-              </p>
-              <form>
-                <label className="playerName" for="playerName">
-                  Player Name:{" "}
-                </label>
-                <input
-                  className="nameField"
-                  onChange={this.handleChange}
-                  type="text"
-                  name="name"
-                  value={this.props.playerName}
-                />
-              </form>
-            </section>
-            <Link to="/game">
-              <Button>START</Button>
-            </Link>
-          </body>
+        <div className="landingPage">
+          <h1 className="title">Triva Time</h1>
+          <h3 className="instructionsTitle">Instructions</h3>
+          <p className="instructionsPara">
+            -Vivamus eu nibh elementum, consequat massa vitae, venenatis ipsum.
+            <br></br>
+            -Quisque faucibus erat hendrerit purus aliquet blandit.
+            <br></br>
+            -Nam vitae ipsum sed dui mattis efficitur nec a mi.
+            <br></br>
+            -Phasellus sed mi pretium, placerat odio sit amet, pulvinar dui.
+          </p>
+          <form>
+            <label className="playerName" for="playerName">
+              Player Name:{" "}
+            </label>
+            <input
+              className="nameField"
+              onChange={this.handleChange}
+              type="text"
+              name="name"
+              value={this.props.playerName}
+            />
+          </form>
+
+          <Link to="/game">
+            <Button>START</Button>
+          </Link>
         </div>
-      </>
+      </Jumbotron>
     );
   }
 }
