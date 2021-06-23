@@ -1,7 +1,13 @@
 .jumbo.jumbotron {
   background-color: rgba(8, 24, 24, 0.712);
   color: coral;
-  margin-top: 8%;
+  margin-top: 3rem;
+}
+
+.questionBtn {
+  color: rgb(80, 249, 255) !important; 
+  background-color: rgb(255, 80, 255) !important;
+
 }
 
 /* .button {

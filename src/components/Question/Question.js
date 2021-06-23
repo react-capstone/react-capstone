@@ -87,8 +87,8 @@ class Question extends Component {
         {currentQuestion && (
           <Jumbotron className="jumbo text-center">
             <Link to="/">
-          <House size={50} />
-        </Link>
+              <House size={50} />
+            </Link>
             {/* <h3>Points: {points}</h3> */}
             <hr />
 
@@ -119,7 +119,11 @@ class Question extends Component {
                     </Form.Text>
                   </Form.Group>
                   <div>
-                    <Button className="button" variant="primary" type="submit">
+                    <Button
+                      className="button questionBtn"
+                      variant="primary"
+                      type="submit"
+                    >
                       Submit
                     </Button>
                   </div>
@@ -148,7 +152,6 @@ class Question extends Component {
                 triviaQuestions={triviaQuestions}
               />
             )}
-            
           </Jumbotron>
         )}
       </>
