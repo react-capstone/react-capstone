@@ -84,7 +84,6 @@ class Question extends Component {
         ></span>
       ));
     }
-    const shuffledAnswers = this.shuffle(allAnswersMapped);
 
     // console.log(this.props.triviaQuestions);
     return (
