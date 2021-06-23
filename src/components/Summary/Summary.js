@@ -9,8 +9,9 @@ class Summary extends Component {
   };
 
   render() {
-    const { status, triviaQuestions, userAnswers, points } = this.props;
-
+    const { status, triviaQuestions, userAnswers, points, playerName } =
+      this.props;
+    console.log("name", playerName);
     let finalResults = userAnswers.map((userAnswer, i) => {
       return {
         user: userAnswer,
@@ -51,7 +52,7 @@ class Summary extends Component {
     return (
       <Jumbotron>
         <body className="summary-container text-center">
-          <h1>Thanks for playing!</h1>
+          <h1>Thanks for playing {playerName}!</h1>
           <h3>Here is how you did :)</h3>
           {status ? (
             <h2 className={winOrLost}>You have won the game!</h2>

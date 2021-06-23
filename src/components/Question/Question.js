@@ -65,7 +65,7 @@ class Question extends Component {
     });
   };
   render() {
-    const { triviaQuestions } = this.props;
+    const { triviaQuestions, playerName } = this.props;
     const { currentQuestionNumber, userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(hint);
@@ -79,6 +79,7 @@ class Question extends Component {
               triviaQuestions={triviaQuestions}
               userAnswers={userAnswers}
               points={points}
+              playerName={playerName}
             />
           </h1>
         ) : (
@@ -87,14 +88,15 @@ class Question extends Component {
         {currentQuestion && (
           <Jumbotron className="jumbo text-center">
             <Link to="/">
-          <House size={50} />
-        </Link>
-            {/* <h3>Points: {points}</h3> */}
+              <House size={50} />
+            </Link>
             <hr />
 
             {points < 100 ? (
               <>
-                <h3>Points: {points}</h3>
+                <p>
+                  Current Points for {playerName}: {points}
+                </p>
                 <h1>Category: "{currentQuestion.category}" </h1>
                 <hr />
                 <h2
@@ -146,9 +148,9 @@ class Question extends Component {
                 userAnswers={userAnswers}
                 points={points}
                 triviaQuestions={triviaQuestions}
+                playerName={playerName}
               />
             )}
-            
           </Jumbotron>
         )}
       </>

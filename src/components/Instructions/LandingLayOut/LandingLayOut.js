@@ -42,7 +42,8 @@ class LandingLayOut extends Component {
               onChange={this.handleChange}
               type="text"
               name="name"
-              value={this.props.playerName}
+              value={playerName}
+              required
             />
           </form>
 
