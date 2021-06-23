@@ -1,39 +1,38 @@
 .landingPage {
-  text-align: center;
-  /* background-image: url("../../../Images/trivia_background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: black;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
+    text-align: center;
+    background-image: url("../../../Images/trivia_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
 }
 
-.border {
-  position: relative;
-  background: linear-gradient(to right, rgb(0, 192, 250), purple);
-  /* background-color: black; */
-  /* padding: 1px; */
+.border.jumbo {
+   
+    position: relative;
+    background: linear-gradient(to right, rgb(0, 192, 250), purple);
+    padding: 8px;
 }
 
 .title {
-  font-size: 60pt;
-  padding-top: 40px;
+    font-size: 60pt;
+    padding-top: 40px;
 }
 
 .instructionsTitle {
-  font-size: 25pt;
-  padding-top: 40px;
+    font-size: 25pt;
+    padding-top: 40px;
 }
 
 .instructionsPara {
-  padding-top: 25px;
+    padding-top: 25px;
 }
 
 .playerName {
-  padding-top: 25px;
-  padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 20px;
 }
 .nameField {
-  font-weight: 500;
-  background-color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.9);
 }

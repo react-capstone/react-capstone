@@ -43,26 +43,24 @@ class Summary extends Component {
     console.log("finalResults", finalResults);
     const winOrLost = status ? "win" : "lost";
     return (
-      <Jumbotron>
-        <body className="summary-container text-center">
-          <h1>Thanks for playing!</h1>
-          <h3>Here is how you did :)</h3>
+      <div className="summary-container text-center">
+        <h1>Thanks for playing!</h1>
+        <h3>Here is how you did :)</h3>
 
-          {status ? (
-            <h2 className={winOrLost}>You have won the game!</h2>
-          ) : (
-            <h2 className={winOrLost}>Better luck next time!</h2>
-          )}
-          <div className="points">Total points: {points}</div>
-          <ul>{summary}</ul>
-          <Link to="/game">
-            <Button onClick={this.handleClick}>Start over</Button>
-          </Link>
-          <Link to="/">
-            <Button variant="danger">New Player</Button>
-          </Link>
-        </body>
-      </Jumbotron>
+        {status ? (
+          <h2 className={winOrLost}>You have won the game!</h2>
+        ) : (
+          <h2 className={winOrLost}>Better luck next time!</h2>
+        )}
+        <div className="points">Total points: {points}</div>
+        <ul>{summary}</ul>
+        <Link to="/game">
+          <Button onClick={this.handleClick}>Start over</Button>
+        </Link>
+        <Link to="/">
+          <Button variant="danger">New Player</Button>
+        </Link>
+      </div>
     );
   }
 }
