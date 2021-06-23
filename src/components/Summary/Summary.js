@@ -23,10 +23,11 @@ class Summary extends Component {
       return (
         <div className="result text-left">
           <li>
-            <p>
-              {" "}
-              Question {index + 1}: {result.question}
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `Question ${index + 1}: ${result.question}`,
+              }}
+            ></p>
             <p>
               Your Answer:{" "}
               {result.user === "" ? (
@@ -35,7 +36,12 @@ class Summary extends Component {
                 result.user
               )}
             </p>
-            <p>Correct Answer: {result.correct}</p>
+
+            <p
+              dangerouslySetInnerHTML={{
+                __html: "Correct Answer: " + result.correct,
+              }}
+            ></p>
           </li>
         </div>
       );
@@ -47,7 +53,6 @@ class Summary extends Component {
         <body className="summary-container text-center">
           <h1>Thanks for playing!</h1>
           <h3>Here is how you did :)</h3>
-
           {status ? (
             <h2 className={winOrLost}>You have won the game!</h2>
           ) : (
@@ -57,7 +62,7 @@ class Summary extends Component {
           <ul>{summary}</ul>
           <Link to="/game">
             <Button onClick={this.handleClick}>Start over</Button>
-          </Link>
+          </Link>{" "}
           <Link to="/">
             <Button variant="danger">New Player</Button>
           </Link>
