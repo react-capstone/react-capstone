@@ -35,28 +35,26 @@ class App extends Component {
     const { questions, playerName } = this.state;
     console.log(playerName);
     return (
-      <div>
-        <main>
-          <Switch>
-            <Route exact path="/">
-              <Landing
-                handleNameChange={this.handleNameChange}
-                playerName={this.state.playerName}
-              />
-            </Route>
-            <Route exact path="/game">
-              <Game triviaQuestions={questions} />
-            </Route>
-            {/* <Route exact path="/points">
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <Landing
+              handleNameChange={this.handleNameChange}
+              playerName={this.state.playerName}
+            />
+          </Route>
+          <Route exact path="/game">
+            <Game triviaQuestions={questions} />
+          </Route>
+          {/* <Route exact path="/points">
           <Points />
         </Route> */}
-            <Route exact path="/summary">
-              <Summary />
-            </Route>
-            <Route path="*" component={NoMatch} />
-          </Switch>
-        </main>
-      </div>
+          <Route exact path="/summary">
+            <Summary />
+          </Route>
+          <Route path="*" component={NoMatch} />
+        </Switch>
+      </main>
     );
   }
 }
