@@ -1,5 +1,5 @@
-.jumbo {
-  background-color: rgba(66, 211, 211, 0.61);
+.jumbo.jumbotron {
+  background-color: rgba(8, 24, 24, 0.712);
   color: coral;
   margin-top: 8%;
 }
