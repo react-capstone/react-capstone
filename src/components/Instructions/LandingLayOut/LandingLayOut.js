@@ -20,35 +20,46 @@ class LandingLayOut extends Component {
     // console.log(this.state.playerName);
     return (
       <Jumbotron className="border jumbo">
+        {" "}
         {/* <h1>{this.props.playerName}</h1> */}
         <div className="landingPage">
-          <h1 className="title">Triva Time</h1>
-          <h3 className="instructionsTitle">Instructions</h3>
-          <p className="instructionsPara">
-            -Vivamus eu nibh elementum, consequat massa vitae, venenatis ipsum.
-            <br></br>
-            -Quisque faucibus erat hendrerit purus aliquet blandit.
-            <br></br>
-            -Nam vitae ipsum sed dui mattis efficitur nec a mi.
-            <br></br>
-            -Phasellus sed mi pretium, placerat odio sit amet, pulvinar dui.
-          </p>
-          <form>
-            <label className="playerName" for="playerName">
-              Player Name:{" "}
-            </label>
-            <input
-              className="nameField"
-              onChange={this.handleChange}
-              type="text"
-              name="name"
-              value={this.props.playerName}
-            />
-          </form>
+          <div className="instructionsContainer">
+            <h1 className="title">Triva Time</h1>
+            <h3 className="instructionsTitle">Instructions</h3>
+            <span className="instructionsPara">
+              -1000 points wins the game.
+              <br />
+              -Each round has up to 15 questions.
+              <br />
+              -Easy questions are worth 100 points.
+              <br />
+              -Medium questions are worth 200 points.
+              <br />
+              -Hard questions are worth 300 points.
+              <br />
+              -Hints cost 50 points and display a helpful GIF.
+              <br />
+              -If you have not scored 1000 points after question 15, you lose
+              the game.
+              <br />
+            </span>
+            <form>
+              <label className="playerName" for="playerName">
+                Player Name:{" "}
+              </label>
+              <input
+                className="nameField"
+                onChange={this.handleChange}
+                type="text"
+                name="name"
+                value={this.props.playerName}
+              />
+            </form>
 
-          <Link to="/game">
-            <Button>START</Button>
-          </Link>
+            <Link to="/game">
+              <Button>START</Button>
+            </Link>
+          </div>
         </div>
       </Jumbotron>
     );
