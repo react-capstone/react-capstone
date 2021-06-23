@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import { Button, Jumbotron } from "react-bootstrap";
 import "./Summary.css";
 import { Link } from "react-router-dom";
-
 class Summary extends Component {
   handleClick = (event) => {
     window.location.reload(false);
   };
-
   render() {
     const { status, triviaQuestions, userAnswers, points, playerName } =
       this.props;
-    console.log("name", playerName);
     let finalResults = userAnswers.map((userAnswer, i) => {
       return {
         user: userAnswer,
@@ -19,16 +16,14 @@ class Summary extends Component {
         question: triviaQuestions[i].question,
       };
     });
-
     const summary = finalResults.map((result, index) => {
       return (
         <div className="result text-left">
           <li>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `Question ${index + 1}: ${result.question}`,
-              }}
-            ></p>
+            <p>
+              {" "}
+              Question {index + 1}: {result.question}
+            </p>
             <p>
               Your Answer:{" "}
               {result.user === "" ? (
@@ -37,12 +32,7 @@ class Summary extends Component {
                 result.user
               )}
             </p>
-
-            <p
-              dangerouslySetInnerHTML={{
-                __html: "Correct Answer: " + result.correct,
-              }}
-            ></p>
+            <p>Correct Answer: {result.correct}</p>
           </li>
         </div>
       );
@@ -51,9 +41,8 @@ class Summary extends Component {
     const winOrLost = status ? "win" : "lost";
     return (
       <div className="summary-container text-center">
-        <h1>Thanks for playing!</h1>
+        <h1>Thanks for playing {playerName}!</h1>
         <h3>Here is how you did :)</h3>
-
         {status ? (
           <h2 className={winOrLost}>You have won the game!</h2>
         ) : (
@@ -71,5 +60,4 @@ class Summary extends Component {
     );
   }
 }
-
 export default Summary;
