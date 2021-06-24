@@ -55,12 +55,17 @@ class Summary extends Component {
         )}
         <div className="points">Total points: {points}</div>
         <ul>{summary}</ul>
-        <Link to="/game">
-          <Button onClick={this.handleClick}>Start Over</Button>
-        </Link>
-        <Link to="/">
-          <Button variant="danger">New Player, Same Questions</Button>
-        </Link>
+        <div>
+          {" "}
+          <Link to="/game">
+            <Button onClick={this.handleClick}>Start Over</Button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/">
+            <Button variant="danger">New Player, Same Questions</Button>
+          </Link>
+        </div>
       </div>
     );
   }

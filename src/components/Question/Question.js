@@ -78,27 +78,6 @@ class Question extends Component {
     } = this.props;
     const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
-    // console.log("currentQuestionNumber", currentQuestionNumber);
-    // console.log(hint);
-    // console.log("currentQuestion", currentQuestion);
-    // let allAnswers;
-    // let allAnswersMapped;
-
-    // if (currentQuestion) {
-    //   let randomNum = Math.random() * 4;
-    //   allAnswers = [...currentQuestion.incorrect_answers];
-    //   allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
-    //   allAnswersMapped = allAnswers.map((answer) => (
-    //     <span
-    //       key={answer}
-    //       dangerouslySetInnerHTML={{
-    //         __html: answer + ", ",
-    //       }}
-    //     ></span>
-    //   ));
-    // }
-
-    // console.log(this.props.triviaQuestions);
     return (
       <>
         {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
@@ -147,21 +126,23 @@ class Question extends Component {
                 </h3>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
-                    <Form.Label></Form.Label>
+                    <Form.Label></Form.Label>{" "}
+                    <Form.Text className="text-muted worth text-center">
+                      This question is worth:{" "}
+                      {this.calculatePoints(currentQuestion)} points
+                    </Form.Text>{" "}
                     <Form.Control
                       type="text"
                       placeholder="Enter answer"
                       value={this.state.currentAnswer}
                       onChange={this.handleChange}
                     />
-                    <Form.Text className="text-muted worth">
-                      This question is worth:{" "}
-                      {this.calculatePoints(currentQuestion)} points
-                    </Form.Text>{" "}
                     {allAnswersMapped ? (
-                      <div className="text-center">
+                      <div className="text-center choices-container">
                         {" "}
-                        <p className="choices">Here are the choices:</p>{" "}
+                        <p className="choices">
+                          <i>Here are the choices:</i>
+                        </p>{" "}
                         {allAnswersMapped}
                       </div>
                     ) : (
@@ -193,7 +174,9 @@ class Question extends Component {
                       </Button>
                     </div>
                   ) : (
-                    <Hint currentQuestion={currentQuestion} />
+                    <div className="text-center">
+                      <Hint currentQuestion={currentQuestion} />
+                    </div>
                   )}
                 </div>
               </>
