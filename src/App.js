@@ -4,12 +4,15 @@ import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
 import Summary from "./components/Summary/Summary";
+import Question from "./components/Question/Question";
 import NoMatch from "./components/NoMatch/NoMatch";
+import Error from "./components/Error/Error";
 
 class App extends Component {
   state = {
     questions: {},
     playerName: "",
+    error: false,
   };
 
   handleNameChange = (playerName) => {
@@ -28,31 +31,41 @@ class App extends Component {
           questions: data.results,
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        this.setState({
+          error: true,
+        });
+      });
   }
+
   render() {
-    const { questions, playerName } = this.state;
+    const { questions, playerName, error } = this.state;
     console.log(playerName);
     return (
       <main>
-        <Switch>
-          <Route exact path="/">
-            <Landing
-              handleNameChange={this.handleNameChange}
-              playerName={playerName}
-            />
-          </Route>
-          <Route exact path="/game">
-            <Game triviaQuestions={questions} playerName={playerName} />
-          </Route>
-          {/* <Route exact path="/points">
+        {error ? (
+          <Error />
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <Landing
+                handleNameChange={this.handleNameChange}
+                playerName={this.state.playerName}
+              />
+            </Route>
+            <Route exact path="/game">
+              <Game triviaQuestions={questions} />
+            </Route>
+            {/* <Route exact path="/points">
           <Points />
         </Route> */}
-          <Route exact path="/summary">
-            <Summary playerName={playerName} />
-          </Route>
-          <Route path="*" component={NoMatch} />
-        </Switch>
+            <Route exact path="/summary">
+              <Summary />
+            </Route>
+            {/* <Route path="/404" component={Error} /> */}
+            <Route path="*" component={NoMatch} />
+          </Switch>
+        )}
       </main>
     );
   }
