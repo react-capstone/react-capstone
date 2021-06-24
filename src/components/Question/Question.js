@@ -14,6 +14,7 @@ class Question extends Component {
     hint: false,
     // currentQuestionNumber: 0,
   };
+
   calculatePoints = (question) => {
     if (question.difficulty === "easy") {
       return 100;
@@ -23,6 +24,7 @@ class Question extends Component {
       return 300;
     }
   };
+
   handleChange = (event) => {
     this.setState({
       currentAnswer: event.target.value,
