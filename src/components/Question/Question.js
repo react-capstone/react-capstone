@@ -81,7 +81,14 @@ class Question extends Component {
     return (
       <>
         {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
-          <h1>
+          <Jumbotron className="jumbo">
+            {" "}
+            <div className="text-center">
+              {" "}
+              <Link to="/">
+                <House size={50} />
+              </Link>
+            </div>
             <Summary
               status={false}
               triviaQuestions={triviaQuestions}
@@ -89,7 +96,7 @@ class Question extends Component {
               points={points}
               playerName={playerName}
             />
-          </h1>
+          </Jumbotron>
         ) : (
           <></>
         )}

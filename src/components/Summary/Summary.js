@@ -61,6 +61,7 @@ class Summary extends Component {
             <Button onClick={this.handleClick}>Start Over</Button>
           </Link>
         </div>
+        <br />
         <div>
           <Link to="/">
             <Button variant="danger">New Player, Same Questions</Button>
