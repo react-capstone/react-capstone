@@ -37,6 +37,7 @@ class Question extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.handleNextQuestion();
     const { userAnswers, currentAnswer, hint } = this.state;
     const { currentQuestionNumber } = this.props;
     //push currentAnswer into userAnswers and set that as userAnswers state
@@ -56,7 +57,7 @@ class Question extends Component {
     this.setState((currentState) => {
       console.log("currentState", currentState);
       // this.props.currentQuestionNumber + 1;
-      this.props.handleNextQuestion();
+      // this.props.handleNextQuestion();
       return {
         userAnswer: answers,
         // currentQuestionNumber: currentState.currentQuestionNumber + 1,
@@ -75,7 +76,9 @@ class Question extends Component {
     } = this.props;
     const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
+    console.log("currentQuestionNumber", currentQuestionNumber);
     console.log(hint);
+    console.log("currentQuestion", currentQuestion);
     // let allAnswers;
     // let allAnswersMapped;
 
