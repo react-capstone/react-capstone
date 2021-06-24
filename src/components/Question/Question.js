@@ -87,7 +87,7 @@ class Question extends Component {
     console.log("progress", progress);
     return (
       <>
-        {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
+        {points < 1000 && currentQuestionNumber === triviaQuestions.length ? (
           <Jumbotron className="jumbo">
             {" "}
             <div className="text-center">
@@ -119,7 +119,7 @@ class Question extends Component {
 
             <hr />
 
-            {points < 100 ? (
+            {points < 1000 ? (
               <>
                 <p className="text-center">
                   Points {playerName}: {points}

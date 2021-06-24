@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Trivia Time
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trivia Time will be a trivia game that generates 15 random questions, with random categories and difficulties. Each question will render one at a time and be worth 100, 200, or 300 points (depending on the difficulty) and there will be an input field for user to type in answer as well as a “hint” button that users can click to show gifs of the answer and if hint is used 50 points will be deducted from total. Player wins when 1000 points are reached! But if a player goes through all questions and still does not achieve 1000 points, the player automatically loses.
 
-## Available Scripts
+**Deployed Link**
+https://blooming-ravine-82753.herokuapp.com/
 
-In the project directory, you can run:
+**_Wireframes_**
+![landing page](/src/images/wireframe-landing.png)
 
-### `npm start`
+![game page](/src/images/wireframe-game.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![game with hint page](/src/images/wireframe-hint.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![summary page](/src/images/wireframe-summary.png)
 
-### `npm test`
+**_Application Pages_**
+![landing page](/src/images/landing.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![game page](/src/images/landing.png)
 
-### `npm run build`
+![game with hint page](/src/images/hint.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![summary page](/src/images/summary.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**_List of the Technologies used_**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React-Bootstrap
+- React-Router
+- JavaScript
+- CSS
 
-### `npm run eject`
+**_Your User stories – who are your users, what do they want and why?_**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- As a user I want to be greeted with a landing page that shows the instructions for the web page
+- As a user I want to be able to navigate the page as a SPA
+- As a user I want to be able to know the category and points each questions are valued
+- As a user I want to know how many points I currently have
+- As a user I want to be able to enter my answer and go on to next question
+- As a user I want to be able to see all my answers compared to the corrected ones along with the questions
+- As a user when I navigate to a wrong link I want to be informed with an error message about it
+- As a user I want to be able to see the choices for the answers
+- As a user when the page takes time to render, I want to see a loading message so that I know it’s not broken
+- As a user I want to be able to have a hint option when having difficulty answering the questions
+- As a user I want to be able to enter my name and see it show on the page as a personal touch
+- As a user I want to be able to send the game to others to play (deployment)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation Instructions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 1. Install packages and dependencies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `npm install`
 
-## Learn More
+### 2. Start the application in local browser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**_Descriptions of any Unsolved problems or major hurdles you had to overcome_**
 
-### Code Splitting
+**Resources Used**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://opentdb.com/api_config.php
+- https://developers.giphy.com/dashboard/
