@@ -4,7 +4,9 @@ import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
 import Summary from "./components/Summary/Summary";
+import Question from "./components/Question/Question";
 import NoMatch from "./components/NoMatch/NoMatch";
+import Error from "./components/Error/Error";
 
 class App extends Component {
   state = {
@@ -30,25 +32,25 @@ class App extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
         });
       });
   }
+
   render() {
     const { questions, playerName, error } = this.state;
     console.log(playerName);
     return (
       <main>
         {error ? (
-          <NoMatch />
+          <Error />
         ) : (
           <Switch>
             <Route exact path="/">
               <Landing
                 handleNameChange={this.handleNameChange}
-                playerName={playerName}
+                playerName={this.state.playerName}
               />
             </Route>
             <Route exact path="/game">
@@ -60,6 +62,7 @@ class App extends Component {
             <Route exact path="/summary">
               <Summary playerName={playerName} />
             </Route>
+            {/* <Route path="/404" component={Error} /> */}
             <Route path="*" component={NoMatch} />
           </Switch>
         )}
