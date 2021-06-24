@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./Summary.css";
 import { Link } from "react-router-dom";
 class Summary extends Component {
@@ -20,10 +20,11 @@ class Summary extends Component {
       return (
         <div className="result text-left">
           <li>
-            <p>
-              {" "}
-              Question {index + 1}: {result.question}
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `Question ${index + 1}: ${result.question}`,
+              }}
+            ></p>
             <p>
               Your Answer:{" "}
               {result.user === "" ? (
@@ -32,7 +33,11 @@ class Summary extends Component {
                 result.user
               )}
             </p>
-            <p>Correct Answer: {result.correct}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `Correct Answer: ${result.correct}`,
+              }}
+            ></p>
           </li>
         </div>
       );
@@ -51,10 +56,10 @@ class Summary extends Component {
         <div className="points">Total points: {points}</div>
         <ul>{summary}</ul>
         <Link to="/game">
-          <Button onClick={this.handleClick}>Start over</Button>
+          <Button onClick={this.handleClick}>Start Over</Button>
         </Link>
         <Link to="/">
-          <Button variant="danger">New Player</Button>
+          <Button variant="danger">New Player, Same Questions</Button>
         </Link>
       </div>
     );
