@@ -4,23 +4,14 @@ import "./LandingLayOut.css";
 import { Link } from "react-router-dom";
 
 class LandingLayOut extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     playerName: "",
-  //   };
-  // }
-
   handleChange = (event) => {
     this.props.handleNameChange(event.target.value);
   };
 
   render() {
     const { playerName } = this.props;
-    // console.log(this.state.playerName);
     return (
       <Jumbotron className="border jumbo">
-        {/* <h1>{this.props.playerName}</h1> */}
         <div className="landingPage">
           <h1 className="title">Trivia Time</h1>
           <h3 className="instructionsTitle">Rules</h3>

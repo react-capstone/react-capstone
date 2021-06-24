@@ -12,8 +12,6 @@ class Question extends Component {
     userAnswers: [],
     currentAnswer: "",
     hint: false,
-    // hintUsed: [],
-    // currentQuestionNumber: 0,
   };
 
   calculatePoints = (question) => {
@@ -58,19 +56,14 @@ class Question extends Component {
     }
 
     hint ? (pointsAdd -= 50) : (pointsAdd += 0);
-    // const hintArray = hintUsed.push(`${hint}`);
+
     console.log(hint);
     this.setState((currentState) => {
-      console.log("currentState", currentState);
-      // this.props.currentQuestionNumber + 1;
-      // this.props.handleNextQuestion();
       return {
         userAnswer: answers,
-        // currentQuestionNumber: currentState.currentQuestionNumber + 1,
         points: currentState.points + pointsAdd,
         currentAnswer: "",
         hint: false,
-        // hintUsed: hintArray,
       };
     });
   };
@@ -87,7 +80,7 @@ class Question extends Component {
     console.log("progress", progress);
     return (
       <>
-        {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
+        {points < 1000 && currentQuestionNumber === triviaQuestions.length ? (
           <Jumbotron className="jumbo">
             {" "}
             <div className="text-center">
@@ -102,7 +95,6 @@ class Question extends Component {
               userAnswers={userAnswers}
               points={points}
               playerName={playerName}
-              // hintUsed={hintUsed}
             />
           </Jumbotron>
         ) : (
@@ -119,7 +111,7 @@ class Question extends Component {
 
             <hr />
 
-            {points < 100 ? (
+            {points < 1000 ? (
               <>
                 <p className="text-center">
                   Points {playerName}: {points}
@@ -133,9 +125,7 @@ class Question extends Component {
                       "<i className='question'>Question: </i>" +
                       currentQuestion.question,
                   }}
-                >
-                  {/* Question: {currentQuestion.question} */}
-                </h3>
+                ></h3>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
                     <Form.Label></Form.Label>{" "}
@@ -207,7 +197,6 @@ class Question extends Component {
                 points={points}
                 triviaQuestions={triviaQuestions}
                 playerName={playerName}
-                // hintUsed={hintUsed}
               />
             )}
           </Jumbotron>

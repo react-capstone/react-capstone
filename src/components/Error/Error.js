@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import { Jumbotron } from "react-bootstrap";
 
-class Error extends Component {
-  render() {
-    return (
-      <div>
-        <h3>Sorry for now.</h3>
-      </div>
-    );
-  }
-}
+const Error = () => {
+  return (
+    <Jumbotron>
+      <h3>Sorry for now.</h3>
+    </Jumbotron>
+  );
+};
 
 export default Error;

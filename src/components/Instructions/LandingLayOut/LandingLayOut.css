@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellota&family=Benne&family=Roboto+Slab&display=swap");
+
 .landingPage {
   text-align: center;
   background-image: url("../../../Images/black-wall.jpg");
@@ -14,13 +16,17 @@
 
 .border.jumbo {
   position: relative;
-  background: linear-gradient(to right, rgb(0, 192, 250), purple);
+  background: linear-gradient(to right, rgb(250, 0, 0), purple);
   padding: 8px;
 }
 
 .title {
   font-size: 60pt;
   padding-top: 30px;
+  font-family: "Benne", serif;
+  font-weight: 1000;
+  font-style: italic;
+  color: rgb(211, 160, 141);
 }
 
 .instructionsTitle {
@@ -28,6 +34,7 @@
   font-size: 25pt;
   padding-top: 30px;
   padding-bottom: 5px;
+  font-family: "Roboto Slab", serif;
   color: rgb(0, 225, 255);
 }
 
@@ -35,6 +42,7 @@
   color: rgb(242, 147, 255);
   font-weight: 500;
   background-color: rgba(0, 0, 0, 0.515);
+  font-family: "Roboto Slab", serif;
 }
 .ruleList {
   list-style-type: none !important;

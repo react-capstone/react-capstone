@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellota&family=Benne&family=Roboto+Slab&display=swap");
+
 .summary-container {
+  font-family: "Roboto Slab", serif;
   padding: 5%;
   background-color: black;
   color: white;

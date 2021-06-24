@@ -4,7 +4,6 @@ import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Game from "./pages/Game/Game";
 import Summary from "./components/Summary/Summary";
-import Question from "./components/Question/Question";
 import NoMatch from "./components/NoMatch/NoMatch";
 import Error from "./components/Error/Error";
 
@@ -27,7 +26,6 @@ class App extends Component {
       .then((data) => {
         console.log("data", data.results);
         this.setState({
-          // state :question has the array of 15 results from API
           questions: data.results,
         });
       })
@@ -40,7 +38,6 @@ class App extends Component {
 
   render() {
     const { questions, playerName, error } = this.state;
-    console.log(playerName);
     return (
       <main>
         {error ? (
@@ -56,13 +53,9 @@ class App extends Component {
             <Route exact path="/game">
               <Game triviaQuestions={questions} playerName={playerName} />
             </Route>
-            {/* <Route exact path="/points">
-          <Points />
-        </Route> */}
             <Route exact path="/summary">
               <Summary playerName={playerName} />
             </Route>
-            {/* <Route path="/404" component={Error} /> */}
             <Route path="*" component={NoMatch} />
           </Switch>
         )}
