@@ -22,7 +22,7 @@ class LandingLayOut extends Component {
       <Jumbotron className="border jumbo">
         {/* <h1>{this.props.playerName}</h1> */}
         <div className="landingPage">
-          <h1 className="title">Triva Time</h1>
+          <h1 className="title">Trivia Time</h1>
           <h3 className="instructionsTitle">Instructions</h3>
           <span className="instructionsPara">
             -1000 points wins the game.

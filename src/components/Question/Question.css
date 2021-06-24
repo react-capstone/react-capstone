@@ -1,15 +1,29 @@
 .jumbo.jumbotron {
   background-color: rgba(8, 24, 24, 0.712);
-  color: coral;
+  color: rgb(219, 124, 90);
   margin-top: 3rem;
 }
 
 .questionBtn {
-  color: rgb(80, 249, 255) !important; 
+  color: rgb(80, 249, 255) !important;
   background-color: rgb(255, 80, 255) !important;
-
 }
 
 /* .button {
   background-color: cornflowerblue;
+} */
+
+.choices {
+  text-align: center;
+  list-style-type: none;
+  color: rgb(169, 224, 226);
+  line-height: 0.7em;
+}
+
+.worth {
+  text-align: end;
+}
+
+/* .category {
+  color: red;
 } */

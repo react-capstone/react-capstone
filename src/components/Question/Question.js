@@ -12,8 +12,9 @@ class Question extends Component {
     userAnswers: [],
     currentAnswer: "",
     hint: false,
-    currentQuestionNumber: 0,
+    // currentQuestionNumber: 0,
   };
+
   calculatePoints = (question) => {
     if (question.difficulty === "easy") {
       return 100;
@@ -23,6 +24,7 @@ class Question extends Component {
       return 300;
     }
   };
+
   handleChange = (event) => {
     this.setState({
       currentAnswer: event.target.value,
@@ -37,8 +39,9 @@ class Question extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { userAnswers, currentAnswer, currentQuestionNumber, points, hint } =
-      this.state;
+    this.props.handleNextQuestion();
+    const { userAnswers, currentAnswer, hint } = this.state;
+    const { currentQuestionNumber } = this.props;
     //push currentAnswer into userAnswers and set that as userAnswers state
     const answers = userAnswers.push(currentAnswer);
     const currentQuestion = this.props.triviaQuestions[currentQuestionNumber];
@@ -55,9 +58,11 @@ class Question extends Component {
     hint ? (pointsAdd -= 50) : (pointsAdd += 0);
     this.setState((currentState) => {
       console.log("currentState", currentState);
+      // this.props.currentQuestionNumber + 1;
+      // this.props.handleNextQuestion();
       return {
         userAnswer: answers,
-        currentQuestionNumber: currentState.currentQuestionNumber + 1,
+        // currentQuestionNumber: currentState.currentQuestionNumber + 1,
         points: currentState.points + pointsAdd,
         currentAnswer: "",
         hint: false,
@@ -65,25 +70,33 @@ class Question extends Component {
     });
   };
   render() {
-    const { triviaQuestions, playerName } = this.props;
-    const { currentQuestionNumber, userAnswers, points, hint } = this.state;
+    const {
+      triviaQuestions,
+      playerName,
+      currentQuestionNumber,
+      allAnswersMapped,
+    } = this.props;
+    const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
-    console.log(hint);
-    let allAnswers;
-    let allAnswersMapped;
-    if (currentQuestion) {
-      allAnswers = [
-        ...currentQuestion.incorrect_answers,
-        currentQuestion.correct_answer,
-      ];
-      allAnswersMapped = allAnswers.map((answer) => (
-        <span
-          dangerouslySetInnerHTML={{
-            __html: answer + ", ",
-          }}
-        ></span>
-      ));
-    }
+    // console.log("currentQuestionNumber", currentQuestionNumber);
+    // console.log(hint);
+    // console.log("currentQuestion", currentQuestion);
+    // let allAnswers;
+    // let allAnswersMapped;
+
+    // if (currentQuestion) {
+    //   let randomNum = Math.random() * 4;
+    //   allAnswers = [...currentQuestion.incorrect_answers];
+    //   allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
+    //   allAnswersMapped = allAnswers.map((answer) => (
+    //     <span
+    //       key={answer}
+    //       dangerouslySetInnerHTML={{
+    //         __html: answer + ", ",
+    //       }}
+    //     ></span>
+    //   ));
+    // }
 
     // console.log(this.props.triviaQuestions);
     return (
@@ -102,27 +115,36 @@ class Question extends Component {
           <></>
         )}
         {currentQuestion && (
-          <Jumbotron className="jumbo text-center">
-            <Link to="/">
-              <House size={50} />
-            </Link>
+          <Jumbotron className="jumbo">
+            <div className="text-center">
+              {" "}
+              <Link to="/">
+                <House size={50} />
+              </Link>
+            </div>
+
             <hr />
 
             {points < 100 ? (
               <>
-                <p>
+                <p className="text-center">
                   Current Points for {playerName}: {points}
                 </p>
 
-                <h1>Category: "{currentQuestion.category}" </h1>
+                <h3>
+                  <i className="category">Category: </i>"
+                  {currentQuestion.category}"{" "}
+                </h3>
                 <hr />
-                <h2
+                <h3
                   dangerouslySetInnerHTML={{
-                    __html: "Question: " + currentQuestion.question,
+                    __html:
+                      "<i className='question'>Question: </i>" +
+                      currentQuestion.question,
                   }}
                 >
                   {/* Question: {currentQuestion.question} */}
-                </h2>
+                </h3>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
                     <Form.Label></Form.Label>
@@ -132,18 +154,26 @@ class Question extends Component {
                       value={this.state.currentAnswer}
                       onChange={this.handleChange}
                     />
-                    <Form.Text className="text-muted">
+                    <Form.Text className="text-muted worth">
                       This question is worth:{" "}
-                      {this.calculatePoints(currentQuestion)}
-                    </Form.Text>
+                      {this.calculatePoints(currentQuestion)} points
+                    </Form.Text>{" "}
+                    {allAnswersMapped ? (
+                      <div className="text-center">
+                        {" "}
+                        <p className="choices">Here are the choices:</p>{" "}
+                        {allAnswersMapped}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </Form.Group>{" "}
-                  {allAnswersMapped ? (
-                    <p className="choices">Choices: {allAnswersMapped}</p>
-                  ) : (
-                    <></>
-                  )}
-                  <div>
-                    <Button className="button" variant="primary" type="submit">
+                  <div className="text-center">
+                    <Button
+                      className="button submit-btn"
+                      variant="primary"
+                      type="submit"
+                    >
                       Submit
                     </Button>
                   </div>
@@ -151,14 +181,17 @@ class Question extends Component {
                 <br />
                 <div>
                   {!hint ? (
-                    <Button
-                      onClick={this.handleHint}
-                      className="button"
-                      variant="warning"
-                      type="submit"
-                    >
-                      Need a Hint? (50 points)
-                    </Button>
+                    <div className="text-center">
+                      {" "}
+                      <Button
+                        onClick={this.handleHint}
+                        className="button"
+                        variant="warning"
+                        type="submit"
+                      >
+                        Need a Hint? (50 points)
+                      </Button>
+                    </div>
                   ) : (
                     <Hint currentQuestion={currentQuestion} />
                   )}
