@@ -15,13 +15,14 @@ class Question extends Component {
   };
 
   calculatePoints = (question) => {
-    if (question.difficulty === "easy") {
-      return 100;
-    } else if (question.difficulty === "medium") {
-      return 200;
-    } else {
-      return 300;
-    }
+    // if (question.difficulty === "easy") {
+    //   return 100;
+    // } else if (question.difficulty === "medium") {
+    //   return 200;
+    // } else {
+    //   return 300;
+    // }
+    return ["", "easy", "medium", "hard"].indexOf(question.difficulty) * 100;
   };
 
   handleChange = (event) => {
@@ -57,7 +58,6 @@ class Question extends Component {
 
     hint ? (pointsAdd -= 50) : (pointsAdd += 0);
 
-    console.log(hint);
     this.setState((currentState) => {
       return {
         userAnswer: answers,
@@ -113,9 +113,13 @@ class Question extends Component {
 
             {points < 1000 ? (
               <>
-                <p className="text-center">
-                  Points {playerName}: {points}
-                </p>
+                {playerName === "" ? (
+                  <p className="text-center"> Current Points: {points}</p>
+                ) : (
+                  <p className="text-center">
+                    Current Points for {playerName}: {points}
+                  </p>
+                )}
 
                 <h3 className="text-center">{currentQuestion.category} </h3>
                 <hr />
