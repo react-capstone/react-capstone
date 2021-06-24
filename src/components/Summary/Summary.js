@@ -19,10 +19,11 @@ class Summary extends Component {
       return (
         <div className="result text-left">
           <li>
-            <p>
-              {" "}
-              Question {index + 1}: {result.question}
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `Question ${index + 1}: ${result.question}`,
+              }}
+            ></p>
             <p>
               Your Answer:{" "}
               {result.user === "" ? (
@@ -31,7 +32,11 @@ class Summary extends Component {
                 result.user
               )}
             </p>
-            <p>Correct Answer: {result.correct}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `Correct Answer: ${result.correct}`,
+              }}
+            ></p>
           </li>
         </div>
       );
