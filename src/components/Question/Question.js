@@ -12,7 +12,7 @@ class Question extends Component {
     userAnswers: [],
     currentAnswer: "",
     hint: false,
-    currentQuestionNumber: 0,
+    // currentQuestionNumber: 0,
   };
   calculatePoints = (question) => {
     if (question.difficulty === "easy") {
@@ -37,8 +37,8 @@ class Question extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { userAnswers, currentAnswer, currentQuestionNumber, points, hint } =
-      this.state;
+    const { userAnswers, currentAnswer, hint } = this.state;
+    const { currentQuestionNumber } = this.props;
     //push currentAnswer into userAnswers and set that as userAnswers state
     const answers = userAnswers.push(currentAnswer);
     const currentQuestion = this.props.triviaQuestions[currentQuestionNumber];
@@ -55,9 +55,11 @@ class Question extends Component {
     hint ? (pointsAdd -= 50) : (pointsAdd += 0);
     this.setState((currentState) => {
       console.log("currentState", currentState);
+      // this.props.currentQuestionNumber + 1;
+      this.props.handleNextQuestion();
       return {
         userAnswer: answers,
-        currentQuestionNumber: currentState.currentQuestionNumber + 1,
+        // currentQuestionNumber: currentState.currentQuestionNumber + 1,
         points: currentState.points + pointsAdd,
         currentAnswer: "",
         hint: false,
@@ -65,26 +67,31 @@ class Question extends Component {
     });
   };
   render() {
-    const { triviaQuestions, playerName } = this.props;
-    const { currentQuestionNumber, currentAnswer, userAnswers, points, hint } =
-      this.state;
+    const {
+      triviaQuestions,
+      playerName,
+      currentQuestionNumber,
+      allAnswersMapped,
+    } = this.props;
+    const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     console.log(hint);
-    let randomNum = Math.floor(Math.random() * 4);
-    let allAnswers;
-    let allAnswersMapped;
-    if (currentQuestion && currentAnswer === "") {
-      allAnswers = [...currentQuestion.incorrect_answers];
+    // let allAnswers;
+    // let allAnswersMapped;
 
-      allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
-      allAnswersMapped = allAnswers.map((answer) => (
-        <span
-          dangerouslySetInnerHTML={{
-            __html: answer + ", ",
-          }}
-        ></span>
-      ));
-    }
+    // if (currentQuestion) {
+    //   let randomNum = Math.random() * 4;
+    //   allAnswers = [...currentQuestion.incorrect_answers];
+    //   allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
+    //   allAnswersMapped = allAnswers.map((answer) => (
+    //     <span
+    //       key={answer}
+    //       dangerouslySetInnerHTML={{
+    //         __html: answer + ", ",
+    //       }}
+    //     ></span>
+    //   ));
+    // }
 
     // console.log(this.props.triviaQuestions);
     return (

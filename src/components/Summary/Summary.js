@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./Summary.css";
 import { Link } from "react-router-dom";
 class Summary extends Component {
@@ -7,8 +7,7 @@ class Summary extends Component {
     window.location.reload(false);
   };
   render() {
-    const { status, triviaQuestions, userAnswers, points, playerName } =
-      this.props;
+    const { status, triviaQuestions, userAnswers, points } = this.props;
     let finalResults = userAnswers.map((userAnswer, i) => {
       return {
         user: userAnswer,
@@ -41,7 +40,7 @@ class Summary extends Component {
     const winOrLost = status ? "win" : "lost";
     return (
       <div className="summary-container text-center">
-        <h1>Thanks for playing {playerName}!</h1>
+        <h1>Thanks for playing!</h1>
         <h3>Here is how you did :)</h3>
         {status ? (
           <h2 className={winOrLost}>You have won the game!</h2>
