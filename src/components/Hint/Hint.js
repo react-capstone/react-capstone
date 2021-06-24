@@ -25,10 +25,8 @@ class Hint extends Component {
 
   render() {
     const { gifImage } = this.state;
-    console.log("hint gif", gifImage);
     return (
       <>
-        {/* <i>Hi</i> */}
         <Image src={gifImage} alt="gifImage" width="250" />
       </>
     );
