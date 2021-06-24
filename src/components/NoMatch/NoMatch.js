@@ -1,12 +1,15 @@
 import React from "react";
-import { Jumbotron } from "react-bootstrap";
+import { Component } from "react";
+import "./NoMatch.css";
 
-const NoMatch = () => {
-  return (
-    <Jumbotron>
-      <h3>Sorry, there's nothing found at: {this.props.location.pathname}</h3>
-    </Jumbotron>
-  );
-};
+class NoMatch extends Component {
+  render() {
+    return (
+      <h3 className="noMatchMsg">
+        No match for the path: {this.props.location.pathname}
+      </h3>
+    );
+  }
+}
 
 export default NoMatch;
