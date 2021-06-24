@@ -159,9 +159,8 @@ class Question extends Component {
                     {allAnswersMapped ? (
                       <div className="text-center">
                         {" "}
-                        <ul className="choices">
-                          Here are the choices: {allAnswersMapped}
-                        </ul>
+                        <p className="choices">Here are the choices:</p>{" "}
+                        {allAnswersMapped}
                       </div>
                     ) : (
                       <></>

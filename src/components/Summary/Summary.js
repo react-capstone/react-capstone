@@ -7,7 +7,8 @@ class Summary extends Component {
     window.location.reload(false);
   };
   render() {
-    const { status, triviaQuestions, userAnswers, points } = this.props;
+    const { status, triviaQuestions, userAnswers, points, playerName } =
+      this.props;
     let finalResults = userAnswers.map((userAnswer, i) => {
       return {
         user: userAnswer,
@@ -45,7 +46,7 @@ class Summary extends Component {
     const winOrLost = status ? "win" : "lost";
     return (
       <div className="summary-container text-center">
-        <h1>Thanks for playing!</h1>
+        <h1>Thanks for playing {playerName}!</h1>
         <h3>Here is how you did :)</h3>
         {status ? (
           <h2 className={winOrLost}>You have won the game!</h2>
@@ -55,10 +56,10 @@ class Summary extends Component {
         <div className="points">Total points: {points}</div>
         <ul>{summary}</ul>
         <Link to="/game">
-          <Button onClick={this.handleClick}>Start over</Button>
+          <Button onClick={this.handleClick}>Start Over</Button>
         </Link>
         <Link to="/">
-          <Button variant="danger">New Player</Button>
+          <Button variant="danger">New Player, Same Questions</Button>
         </Link>
       </div>
     );
