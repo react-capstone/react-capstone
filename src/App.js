@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     questions: {},
     playerName: "",
+    error: false,
   };
 
   handleNameChange = (playerName) => {
@@ -28,31 +29,40 @@ class App extends Component {
           questions: data.results,
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          error: true,
+        });
+      });
   }
   render() {
-    const { questions, playerName } = this.state;
+    const { questions, playerName, error } = this.state;
     console.log(playerName);
     return (
       <main>
-        <Switch>
-          <Route exact path="/">
-            <Landing
-              handleNameChange={this.handleNameChange}
-              playerName={playerName}
-            />
-          </Route>
-          <Route exact path="/game">
-            <Game triviaQuestions={questions} playerName={playerName} />
-          </Route>
-          {/* <Route exact path="/points">
+        {error ? (
+          <NoMatch />
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <Landing
+                handleNameChange={this.handleNameChange}
+                playerName={playerName}
+              />
+            </Route>
+            <Route exact path="/game">
+              <Game triviaQuestions={questions} playerName={playerName} />
+            </Route>
+            {/* <Route exact path="/points">
           <Points />
         </Route> */}
-          <Route exact path="/summary">
-            <Summary playerName={playerName} />
-          </Route>
-          <Route path="*" component={NoMatch} />
-        </Switch>
+            <Route exact path="/summary">
+              <Summary playerName={playerName} />
+            </Route>
+            <Route path="*" component={NoMatch} />
+          </Switch>
+        )}
       </main>
     );
   }
