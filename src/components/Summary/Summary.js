@@ -33,6 +33,7 @@ class Summary extends Component {
                 result.user
               )}
             </p>
+
             <p
               dangerouslySetInnerHTML={{
                 __html: `Correct Answer: ${result.correct}`,

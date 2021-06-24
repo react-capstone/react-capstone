@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Jumbotron } from "react-bootstrap";
+import { Button, Form, Jumbotron, ProgressBar } from "react-bootstrap";
 import "./Question.css";
 import Summary from "../Summary/Summary";
 import Hint from "../Hint/Hint";
@@ -12,6 +12,7 @@ class Question extends Component {
     userAnswers: [],
     currentAnswer: "",
     hint: false,
+    // hintUsed: [],
     // currentQuestionNumber: 0,
   };
 
@@ -44,6 +45,7 @@ class Question extends Component {
     const { currentQuestionNumber } = this.props;
     //push currentAnswer into userAnswers and set that as userAnswers state
     const answers = userAnswers.push(currentAnswer);
+
     const currentQuestion = this.props.triviaQuestions[currentQuestionNumber];
 
     let pointsAdd = 0;
@@ -56,6 +58,8 @@ class Question extends Component {
     }
 
     hint ? (pointsAdd -= 50) : (pointsAdd += 0);
+    // const hintArray = hintUsed.push(`${hint}`);
+    console.log(hint);
     this.setState((currentState) => {
       console.log("currentState", currentState);
       // this.props.currentQuestionNumber + 1;
@@ -66,6 +70,7 @@ class Question extends Component {
         points: currentState.points + pointsAdd,
         currentAnswer: "",
         hint: false,
+        // hintUsed: hintArray,
       };
     });
   };
@@ -78,6 +83,8 @@ class Question extends Component {
     } = this.props;
     const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
+    const progress = (currentQuestionNumber + 1) / triviaQuestions.length;
+    console.log("progress", progress);
     return (
       <>
         {points < 100 && currentQuestionNumber === triviaQuestions.length ? (
@@ -95,6 +102,7 @@ class Question extends Component {
               userAnswers={userAnswers}
               points={points}
               playerName={playerName}
+              // hintUsed={hintUsed}
             />
           </Jumbotron>
         ) : (
@@ -114,13 +122,10 @@ class Question extends Component {
             {points < 100 ? (
               <>
                 <p className="text-center">
-                  Current Points for {playerName}: {points}
+                  Points {playerName}: {points}
                 </p>
 
-                <h3>
-                  <i className="category">Category: </i>"
-                  {currentQuestion.category}"{" "}
-                </h3>
+                <h3 className="text-center">{currentQuestion.category} </h3>
                 <hr />
                 <h3
                   dangerouslySetInnerHTML={{
@@ -134,7 +139,7 @@ class Question extends Component {
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
                     <Form.Label></Form.Label>{" "}
-                    <Form.Text className="text-muted worth text-center">
+                    <Form.Text className="worth text-center">
                       This question is worth:{" "}
                       {this.calculatePoints(currentQuestion)} points
                     </Form.Text>{" "}
@@ -155,6 +160,14 @@ class Question extends Component {
                     ) : (
                       <></>
                     )}
+                    <ProgressBar
+                      animated
+                      variant="success"
+                      now={progress * 100}
+                      label={`${currentQuestionNumber + 1}/${
+                        triviaQuestions.length
+                      }`}
+                    />
                   </Form.Group>{" "}
                   <div className="text-center">
                     <Button
@@ -194,6 +207,7 @@ class Question extends Component {
                 points={points}
                 triviaQuestions={triviaQuestions}
                 playerName={playerName}
+                // hintUsed={hintUsed}
               />
             )}
           </Jumbotron>
