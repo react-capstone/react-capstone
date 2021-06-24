@@ -17,7 +17,7 @@ https://blooming-ravine-82753.herokuapp.com/
 **_Application Pages_**
 ![landing page](/public/landing.png)
 
-![game page](/public/landing.png)
+![game page](/public/game.png)
 
 ![game with hint page](/public/hint.png)
 
