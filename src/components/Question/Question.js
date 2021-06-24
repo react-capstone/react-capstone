@@ -125,10 +125,7 @@ class Question extends Component {
                   Points {playerName}: {points}
                 </p>
 
-                <h3>
-                  <i className="category">Category: </i>"
-                  {currentQuestion.category}"{" "}
-                </h3>
+                <h3 className="text-center">{currentQuestion.category} </h3>
                 <hr />
                 <h3
                   dangerouslySetInnerHTML={{
@@ -142,7 +139,7 @@ class Question extends Component {
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
                     <Form.Label></Form.Label>{" "}
-                    <Form.Text className="text-muted worth text-center">
+                    <Form.Text className="worth text-center">
                       This question is worth:{" "}
                       {this.calculatePoints(currentQuestion)} points
                     </Form.Text>{" "}
