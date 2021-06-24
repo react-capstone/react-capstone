@@ -8,6 +8,13 @@ class LandingLayOut extends Component {
     this.props.handleNameChange(event.target.value);
   };
 
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      submitted: true,
+    });
+  };
+
   render() {
     const { playerName } = this.props;
     return (
@@ -29,7 +36,7 @@ class LandingLayOut extends Component {
             </div>
             {/* </ul> */}
           </span>
-          <form>
+          <form className="landingForm" onSubmit={this.onSubmit}>
             <label className="playerName" for="playerName">
               Player Name:{" "}
             </label>
@@ -41,11 +48,13 @@ class LandingLayOut extends Component {
               value={playerName}
               required
             />
+            <br />
+            <Link to="/game">
+              <Button type="submit" value="Submit">
+                START
+              </Button>
+            </Link>
           </form>
-
-          <Link to="/game">
-            <Button>START</Button>
-          </Link>
         </div>
       </Jumbotron>
     );
