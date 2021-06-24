@@ -52,12 +52,13 @@ class Game extends Component {
       allAnswers = [...currentQuestion.incorrect_answers];
       allAnswers.splice(randomNum, 0, currentQuestion.correct_answer);
       allAnswersMapped = allAnswers.map((answer) => (
-        <span
+        <li
+          className="choices"
           key={answer}
           dangerouslySetInnerHTML={{
-            __html: answer + ", ",
+            __html: answer,
           }}
-        ></span>
+        ></li>
       ));
     }
     return (

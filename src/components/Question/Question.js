@@ -76,9 +76,9 @@ class Question extends Component {
     } = this.props;
     const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
-    console.log("currentQuestionNumber", currentQuestionNumber);
-    console.log(hint);
-    console.log("currentQuestion", currentQuestion);
+    // console.log("currentQuestionNumber", currentQuestionNumber);
+    // console.log(hint);
+    // console.log("currentQuestion", currentQuestion);
     // let allAnswers;
     // let allAnswersMapped;
 
@@ -113,27 +113,36 @@ class Question extends Component {
           <></>
         )}
         {currentQuestion && (
-          <Jumbotron className="jumbo text-center">
-            <Link to="/">
-              <House size={50} />
-            </Link>
+          <Jumbotron className="jumbo">
+            <div className="text-center">
+              {" "}
+              <Link to="/">
+                <House size={50} />
+              </Link>
+            </div>
+
             <hr />
 
             {points < 100 ? (
               <>
-                <p>
+                <p className="text-center">
                   Current Points for {playerName}: {points}
                 </p>
 
-                <h1>Category: "{currentQuestion.category}" </h1>
+                <h3>
+                  <i className="category">Category: </i>"
+                  {currentQuestion.category}"{" "}
+                </h3>
                 <hr />
-                <h2
+                <h3
                   dangerouslySetInnerHTML={{
-                    __html: "Question: " + currentQuestion.question,
+                    __html:
+                      "<i className='question'>Question: </i>" +
+                      currentQuestion.question,
                   }}
                 >
                   {/* Question: {currentQuestion.question} */}
-                </h2>
+                </h3>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicInput">
                     <Form.Label></Form.Label>
@@ -143,18 +152,27 @@ class Question extends Component {
                       value={this.state.currentAnswer}
                       onChange={this.handleChange}
                     />
-                    <Form.Text className="text-muted">
+                    <Form.Text className="text-muted worth">
                       This question is worth:{" "}
-                      {this.calculatePoints(currentQuestion)}
-                    </Form.Text>
+                      {this.calculatePoints(currentQuestion)} points
+                    </Form.Text>{" "}
+                    {allAnswersMapped ? (
+                      <div className="text-center">
+                        {" "}
+                        <ul className="choices">
+                          Here are the choices: {allAnswersMapped}
+                        </ul>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </Form.Group>{" "}
-                  {allAnswersMapped ? (
-                    <p className="choices">Choices: {allAnswersMapped}</p>
-                  ) : (
-                    <></>
-                  )}
-                  <div>
-                    <Button className="button" variant="primary" type="submit">
+                  <div className="text-center">
+                    <Button
+                      className="button submit-btn"
+                      variant="primary"
+                      type="submit"
+                    >
                       Submit
                     </Button>
                   </div>
@@ -162,14 +180,17 @@ class Question extends Component {
                 <br />
                 <div>
                   {!hint ? (
-                    <Button
-                      onClick={this.handleHint}
-                      className="button"
-                      variant="warning"
-                      type="submit"
-                    >
-                      Need a Hint? (50 points)
-                    </Button>
+                    <div className="text-center">
+                      {" "}
+                      <Button
+                        onClick={this.handleHint}
+                        className="button"
+                        variant="warning"
+                        type="submit"
+                      >
+                        Need a Hint? (50 points)
+                      </Button>
+                    </div>
                   ) : (
                     <Hint currentQuestion={currentQuestion} />
                   )}
