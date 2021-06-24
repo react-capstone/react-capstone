@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import { Jumbotron } from "react-bootstrap";
 
-export default class NoMatch extends Component {
-  render() {
-    return (
+const NoMatch = () => {
+  return (
+    <Jumbotron>
       <h3>Sorry, there's nothing found at: {this.props.location.pathname}</h3>
-    );
-  }
-}
+    </Jumbotron>
+  );
+};
+
+export default NoMatch;
