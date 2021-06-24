@@ -54,13 +54,13 @@ class App extends Component {
               />
             </Route>
             <Route exact path="/game">
-              <Game triviaQuestions={questions} />
+              <Game triviaQuestions={questions} playerName={playerName} />
             </Route>
             {/* <Route exact path="/points">
           <Points />
         </Route> */}
             <Route exact path="/summary">
-              <Summary />
+              <Summary playerName={playerName} />
             </Route>
             {/* <Route path="/404" component={Error} /> */}
             <Route path="*" component={NoMatch} />
