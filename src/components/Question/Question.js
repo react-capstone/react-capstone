@@ -164,7 +164,8 @@ class Question extends Component {
                       <></>
                     )}
                     <ProgressBar
-                      varient="info"
+                      animated
+                      variant="success"
                       now={progress * 100}
                       label={`${currentQuestionNumber + 1}/${
                         triviaQuestions.length
