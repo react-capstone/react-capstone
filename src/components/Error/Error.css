@@ -1,10 +1,9 @@
 .sorryMsg {
     background-color: rgba(173, 155, 155, 0);
-    
 }
 
 .jumbotron.sorryMsg {
-    color:rgb(238, 123, 29);
+    color: rgb(238, 123, 29);
     padding: 5%;
     background-color: rgba(5, 17, 85, 0.815);
     margin-top: 5%;
