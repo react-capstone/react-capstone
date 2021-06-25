@@ -14,8 +14,12 @@ class Summary extends Component {
         user: userAnswer,
         correct: triviaQuestions[i].correct_answer,
         question: triviaQuestions[i].question,
+        isCorrect:
+          userAnswer.toLowerCase().trim() ===
+          triviaQuestions[i].correct_answer.toLowerCase(),
       };
     });
+
     const summary = finalResults.map((result, index) => {
       return (
         <div className="result text-left">
@@ -24,7 +28,9 @@ class Summary extends Component {
               __html: `Question ${index + 1}: ${result.question}`,
             }}
           ></i>
-          <div className="display">
+          <div
+            className={`display ${result.isCorrect ? `yes` : `wrongAnswer`}`}
+          >
             Your Answer:{" "}
             {result.user === "" ? (
               <span className="noAnswer">No Answer Given</span>

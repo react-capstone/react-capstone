@@ -50,7 +50,7 @@ class Question extends Component {
     let pointsAdd = 0;
 
     if (
-      currentAnswer.toLowerCase() ===
+      currentAnswer.toLowerCase().trim() ===
       currentQuestion.correct_answer.toLowerCase()
     ) {
       pointsAdd = this.calculatePoints(currentQuestion);

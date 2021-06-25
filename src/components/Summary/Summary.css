@@ -18,11 +18,19 @@
 .lost {
   color: aqua;
 }
-
+.wrongAnswer {
+  color: rgb(228, 163, 163);
+  font-style: italic;
+}
 .noAnswer {
   font-style: italic;
-  color: rgb(196, 77, 77);
+  color: rgb(212, 191, 94);
 }
 .display {
   padding: 1%;
+}
+
+.yes {
+  color: rgb(114, 235, 114);
+  font-style: italic;
 }
