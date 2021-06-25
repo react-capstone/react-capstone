@@ -23,8 +23,7 @@ class LandingLayOut extends Component {
           <h1 className="title">Trivia Time</h1>
           <h3 className="instructionsTitle">Rules</h3>
           <span className="instructionsPara">
-            {/* <ul className="ruleList"> */}
-            <div>1000 points wins the game.</div>
+            <i>1000 points wins the game.</i>
             <div>Each round has up to 15 questions.</div>
             <div>Easy questions are worth 100 points.</div>
             <div>Medium questions are worth 200 points.</div>
@@ -34,7 +33,6 @@ class LandingLayOut extends Component {
               If you have not scored 1000 points after question 15, you lose the
               game.
             </div>
-            {/* </ul> */}
           </span>
           <form className="landingForm" onSubmit={this.onSubmit}>
             <label className="playerName" for="playerName">

@@ -77,7 +77,6 @@ class Question extends Component {
     const { userAnswers, points, hint } = this.state;
     const currentQuestion = triviaQuestions[currentQuestionNumber];
     const progress = (currentQuestionNumber + 1) / triviaQuestions.length;
-    console.log("progress", progress);
     return (
       <>
         {points < 1000 && currentQuestionNumber === triviaQuestions.length ? (

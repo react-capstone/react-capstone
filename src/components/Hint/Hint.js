@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Image } from "react-bootstrap";
+import Error from "../Error/Error";
 
 class Hint extends Component {
   state = {
     gifImage: "",
+    error: false,
   };
+
   componentDidMount() {
     const API_KEY = process.env.REACT_APP_GIPHY_API_KEY;
     const answer = this.props.currentQuestion.correct_answer;
@@ -19,15 +22,21 @@ class Hint extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        this.setState({
+          error: true,
+        });
       });
   }
 
   render() {
-    const { gifImage } = this.state;
+    const { gifImage, error } = this.state;
     return (
       <>
-        <Image src={gifImage} alt="gifImage" width="250" />
+        {error ? (
+          <Error />
+        ) : (
+          <Image src={gifImage} alt="gifImage" width="250" />
+        )}
       </>
     );
   }
