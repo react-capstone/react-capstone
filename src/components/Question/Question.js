@@ -183,7 +183,7 @@ class Question extends Component {
                         variant="warning"
                         type="submit"
                       >
-                        Need a Hint? (50 points)
+                        Need a Hint? (-50 points)
                       </Button>
                     </div>
                   ) : (
