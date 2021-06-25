@@ -22,12 +22,12 @@ class Summary extends Component {
 
     const summary = finalResults.map((result, index) => {
       return (
-        <div className="result text-left">
-          <i
+        <div key={`${result.question}-${index}`} className="result text-left">
+          <div
             dangerouslySetInnerHTML={{
               __html: `Question ${index + 1}: ${result.question}`,
             }}
-          ></i>
+          ></div>
           <div
             className={`display ${result.isCorrect ? `yes` : `wrongAnswer`}`}
           >
@@ -60,7 +60,7 @@ class Summary extends Component {
           <h2 className={winOrLost}>Better luck next time!</h2>
         )}
         <div className="points">Total points: {points}</div>
-        <p>{summary}</p>
+        <div>{summary}</div>
         <div>
           {" "}
           <Link to="/game">
