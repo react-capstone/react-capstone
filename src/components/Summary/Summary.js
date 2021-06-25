@@ -19,27 +19,26 @@ class Summary extends Component {
     const summary = finalResults.map((result, index) => {
       return (
         <div className="result text-left">
-          <li>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `Question ${index + 1}: ${result.question}`,
-              }}
-            ></p>
-            <p>
-              Your Answer:{" "}
-              {result.user === "" ? (
-                <span className="noAnswer">No Answer Given</span>
-              ) : (
-                result.user
-              )}
-            </p>
+          <i
+            dangerouslySetInnerHTML={{
+              __html: `Question ${index + 1}: ${result.question}`,
+            }}
+          ></i>
+          <div className="display">
+            Your Answer:{" "}
+            {result.user === "" ? (
+              <span className="noAnswer">No Answer Given</span>
+            ) : (
+              result.user
+            )}
+          </div>
 
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `Correct Answer: ${result.correct}`,
-              }}
-            ></p>
-          </li>
+          <div
+            className="display"
+            dangerouslySetInnerHTML={{
+              __html: `Correct Answer: ${result.correct}`,
+            }}
+          ></div>
         </div>
       );
     });
@@ -55,7 +54,7 @@ class Summary extends Component {
           <h2 className={winOrLost}>Better luck next time!</h2>
         )}
         <div className="points">Total points: {points}</div>
-        <ul>{summary}</ul>
+        <p>{summary}</p>
         <div>
           {" "}
           <Link to="/game">

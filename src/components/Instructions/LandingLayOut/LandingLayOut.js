@@ -35,7 +35,7 @@ class LandingLayOut extends Component {
             </div>
           </span>
           <form className="landingForm" onSubmit={this.onSubmit}>
-            <label className="playerName" for="playerName">
+            <label className="playerName" htmlFor="playerName">
               Player Name:{" "}
             </label>
             <input
