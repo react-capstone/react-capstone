@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Bellota&family=Benne&family=Roboto+Slab&display=swap");
-
 .landingPage {
   text-align: center;
   background-image: url("../../../Images/black-wall.jpg");
@@ -44,6 +43,7 @@
   background-color: rgba(0, 0, 0, 0.515);
   font-family: "Roboto Slab", serif;
 }
+
 .ruleList {
   list-style-type: none !important;
 }
