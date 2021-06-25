@@ -6,6 +6,7 @@ Trivia Time will be a trivia game that generates 15 random questions, with rando
 https://blooming-ravine-82753.herokuapp.com/
 
 **_Wireframes_**
+
 ![landing page](/public/wireframe-landing.png)
 
 ![game page](/public/wireframe-game.png)
@@ -15,6 +16,7 @@ https://blooming-ravine-82753.herokuapp.com/
 ![summary page](/public/wireframe-summary.png)
 
 **_Application Pages_**
+
 ![landing page](/public/landing.png)
 
 ![game page](/public/game.png)

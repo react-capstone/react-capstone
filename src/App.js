@@ -47,7 +47,7 @@ class App extends Component {
             <Route exact path="/">
               <Landing
                 handleNameChange={this.handleNameChange}
-                playerName={this.state.playerName}
+                playerName={playerName}
               />
             </Route>
             <Route exact path="/game">
