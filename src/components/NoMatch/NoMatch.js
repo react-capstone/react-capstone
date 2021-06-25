@@ -3,7 +3,7 @@ import { Jumbotron, Image } from "react-bootstrap";
 import nomatchmario from "../../Images/nomatchmario.gif";
 import { useLocation } from "react-router-dom";
 
-function NoMatch(props) {
+function NoMatch() {
   const location = useLocation();
   return (
     <Jumbotron className="noMatchJumbo">
