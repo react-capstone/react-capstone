@@ -3,7 +3,7 @@
 Trivia Time will be a trivia game that generates 15 random questions, with random categories and difficulties. Each question will render one at a time and be worth 100, 200, or 300 points (depending on the difficulty) and there will be an input field for user to type in answer as well as a “hint” button that users can click to show gifs of the answer and if hint is used 50 points will be deducted from total. Player wins when 1000 points are reached! But if a player goes through all questions and still does not achieve 1000 points, the player automatically loses.
 
 **Deployed Link**
-https://blooming-ravine-82753.herokuapp.com/
+https://trivia-time-react.herokuapp.com/
 
 **_Wireframes_**
 
